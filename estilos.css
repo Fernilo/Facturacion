@@ -1,0 +1,15 @@
+/*-----------------------------------------------------------------------------------	
+Nombre:estilos.css;
+	Autor:Fernando Mercado;
+	Fecha:12/2018;
+-------------------------------------------------------------------------------------
+*/
+/**{
+	margin:0;					
+	padding: 0;					Normalmente esto de deberia poner pero en la nueva version de 
+	box-sizing: border-box;		Bootstrap ya viene incorporado
+	
+}*/
+body{
+	background-color: blue;
+}
