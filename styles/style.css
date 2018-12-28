@@ -1,0 +1,97 @@
+/*margin:0;
+padding:0; Esto no va porque bootstrap ya tiene incorporado
+box-sizing:border-box;*/
+h3{
+	font-family: 'Arial';
+	font-size:20pt;
+	letter-spacing: 1px;
+	width: 100%;
+	padding: 15px;
+	text-align: center;
+	color:#fff;
+	text-transform: uppercase;
+}
+body{
+	background-color:  #f9e79f;
+}
+input{
+	text-align: center;
+}
+#container{
+	
+	width: 100%;
+	height: 100vh;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;	
+	justify-content: center;
+	align-items: center;
+	
+}
+#container form{
+	width: 400px;
+	padding: 10px;
+	height: 460px;
+}
+
+#container form img{
+	margin:10px auto;
+	display: block;
+	text-align: center;
+}
+
+.alerta{
+	font-family: 'Arial';
+	text-align: center;
+}
+.ubicar_submit{
+	position: relative;
+	top:30px;
+	
+}
+.form_register{
+	margin: auto;
+	padding: auto;
+	border-radius: 10px;
+	height: 600px;
+}
+.errores{
+	width: 300px;
+	text-align: center;
+	margin: auto;
+	padding: auto;
+}
+.ocultar{
+	display: none;
+	height: 5px;
+}
+/* alertas de mesanjes*/
+.alerta-correcto{
+	background-color: #27ae60;
+	border-radius:20px;
+	margin: 5px auto;
+	color:#fff;
+	padding:15px;
+	text-align: center;
+	font-size: 17px;
+	font-weight: bold;
+
+}
+.alerta-incorrecto{
+	background-color:red;
+	border-radius:20px;
+	margin: 5px auto;
+	color:#fff;
+	padding:15px;
+	text-align: center;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+
+.notItem option:first-child{
+	display: none
+}
+
