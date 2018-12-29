@@ -38,8 +38,24 @@ include("includes/conexion.php");
               <th scope="col">Acciones</th>
             </tr>
           </thead>
-          <?php 
-          $sqlLista="SELECT * FROM usuario u INNER JOIN rol r ON u.rol= r.idrol WHERE estatus=1";
+          <?php
+          $sqlPaginador="SELECT COUNT(*) as total_registro FROM usuario WHERE estatus=1";
+          $rPaginador=mysqli_query($db,$sqlPaginador);
+          $rsPaginador=mysqli_fetch_array($rPaginador);
+          $total_registro=$rsPaginador['total_registro'];
+
+          $por_pagina=10;
+
+          if(empty($_GET['pagina'])){
+            $pagina=1;
+          }else{
+            $pagina=$_GET['pagina'];
+          }
+
+          $desde=($pagina-1 )*$por_pagina;
+          $total_paginas=ceil($total_registro/$por_pagina);//ceil redondea a entero
+
+          $sqlLista="SELECT * FROM usuario u INNER JOIN rol r ON u.rol= r.idrol WHERE estatus=1 ORDER BY u.idusuario ASC LIMIT $desde,$por_pagina ";
           $rLista=mysqli_query($db,$sqlLista);
           $rowsLista=mysqli_num_rows($rLista);
           if($rowsLista >0){
@@ -75,6 +91,45 @@ include("includes/conexion.php");
         </table>
       </div>
     </div>
+    <div class="row">
+      <div class=" col-12 paginador">
+        <ul>
+          <?php 
+            if($pagina !=1){
+
+
+
+           ?>
+          <li><a href="?pagina=<?php echo 1; ?>">|<</a></li>
+          <li><a href="?pagina=<?php echo $pagina - 1; ?>"><<</a></li>
+          
+
+          <?php 
+          }
+          for($i=1;$i<= $total_paginas;$i++){
+            if($i== $pagina){
+              echo '<li class="pageSelected">'.$i.'</a></li>';
+            }else{
+              echo '<li class=""><a href="?pagina='.$i.'">'.$i.'</a></li>';
+            }
+            
+          }
+
+          if($pagina != $total_paginas){
+
+           ?>
+          
+          
+        
+          <li><a href="?pagina=<?php echo $pagina + 1; ?>">>></a></li>
+          <li><a href="?pagina=<?php echo $total_paginas; ?>">>|</a></li>
+          <?php 
+          }
+           ?>
+        </ul>
+      </div>
+    </div>
+    
     <?php include("includes/footer.php"); ?>
 
   </div>

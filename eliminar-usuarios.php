@@ -3,6 +3,10 @@
 	include("includes/conexion.php");
 	if(!empty($_POST)){
 		$idusu=$_POST['idusuario'];
+		if($_POST['idusuario']==1){
+			header("location:listausuarios.php");
+			exit;
+		}
 		//$sqlDelete="DELETE FROM usuario WHERE idusuario=$idusu";
 		$sqlUpdate="UPDATE usuario SET estatus =0 WHERE idusuario=$idusu";
 		$rUpdate=mysqli_query($db,$sqlUpdate);

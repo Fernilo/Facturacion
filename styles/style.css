@@ -12,7 +12,7 @@ h3{
 	text-transform: uppercase;
 }
 body{
-	background-color:  #f9e79f;
+	background-color:#f4f6f7;
 }
 input{
 	text-align: center;
@@ -94,4 +94,32 @@ input{
 .notItem option:first-child{
 	display: none
 }
-
+/*paginador*/
+.paginador ul{
+	padding: 15px;
+	list-style: none;	
+	margin-top: 15px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: flex-end;
+}
+.paginador a,.pageSelected{
+	border:1px solid;
+	padding: 5px;
+	display:inline-block;
+	font-size: 14px;
+	text-align: center;
+	width: 35px;
+	text-decoration: none;
+}
+.paginador a:hover{
+	background-color: #ddd;
+}
+.pageSelected{
+	color:#fff;
+	background-color: #428bca;
+	border:1px solid #428bca;
+}
