@@ -1,13 +1,17 @@
   <?php 
+  session_start(); 
+  if($_SESSION['rol'] !=1){
+    header("location:sistema.php");
+  }
   include("includes/conexion.php");
   //obtengo los datos enviados en el form
   if(!empty($_POST)){
     $alert='';
     if(empty($_POST['nombre']) || empty($_POST['email']) || empty($_POST['usuario']) || empty($_POST['rol']) ){
-      $alert='<p>campos obligatorios</p> ';
+     
     }else{
 
-      $idusuario=$_POST['idusuario'];
+      $idusuario=$_POST['id'];
       $nombre=$_POST['nombre'];
       $email=$_POST['email'];
       $usuario=$_POST['usuario'];
@@ -16,7 +20,9 @@
 
       $sqlConsulta="SELECT * FROM usuario WHERE (usuario ='$usuario' AND idusuario!=$idusuario) OR (correo ='$email' AND idusuario!=$idusuario)";
       $rConsulta=mysqli_query($db,$sqlConsulta);
+      
       $rsConsulta=mysqli_fetch_array($rConsulta);
+      $rsConsulta=count($rsConsulta);
       if($rsConsulta>0){
         $alert='<p class="alerta-incorrecto">El usuario o correo ya existe</p> ';
       }
@@ -30,6 +36,7 @@
           $sqlUpdate="UPDATE usuario SET nombre='$nombre',correo='$email',usuario='$usuario',rol='$rol',clave='$clave' WHERE idusuario=$idusuario";
           $rUpdate=mysqli_query($db,$sqlUpdate);
         }
+        
         if($rUpdate){
           $alert='<p class="alerta-correcto">Usuario actualizado correctamente</p>';
         }else{
@@ -37,17 +44,19 @@
         }
       }
     }
+    
   }
   //obtengo id y verifico si existe
 
-  if(empty($_GET['id'])){
+  if(empty($_REQUEST['id'])){
     header('location:listausuarios.php');
   }
 
-  $idusuario=$_GET['id'];
+  $idusuario=$_REQUEST['id'];
   $sqlExiste="SELECT u.idusuario,u.nombre,u.correo,u.usuario,u.rol as idrol,r.rol as rol FROM usuario u INNER JOIN rol r on u.rol=r.idrol WHERE idusuario=$idusuario AND estatus =1";
 
   $rExiste=mysqli_query($db,$sqlExiste);
+  
   $nrowExiste=mysqli_num_rows($rExiste);
   if($nrowExiste == 0){
    header('location:listausuarios.php');
@@ -88,6 +97,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="alertify/css/alertify.min.css">
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <title>Editar Usuario</title>
 </head>
   <body>
@@ -95,7 +105,7 @@
      <?php include("includes/header.php"); ?>
      <div class="row">
         <div class="col-12">
-          <h2 class="text-secondary">Edición de Usuario</h2>
+          <h2 class="text-secondary"><i class="fas fa-edit"></i> Edición de Usuario</h2>
           <hr>
         </div>
       </div>
@@ -107,7 +117,7 @@
       <div class="form_register bg-dark col-xs-12 col-md-4">
         <form onsubmit="" action="" method="post" >
          <h5 class="text-center text-info">Formulario</h5>
-         <input type="hidden" name="idusuario" value="  <?php echo $idusuario ?> ">
+         <input type="hidden" name="id" value="  <?php echo $idusuario ?> ">
          <div class="col-xs-4 form-group">
            <label for="nombre" class="text-white">Nombre</label>
            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value=" <?php echo $nombre; ?> ">
@@ -155,7 +165,7 @@
           </select>
           </div>
 
-          <button class="btn btn-primary btn-lg btn-block p-1" type="submit">Enviar formulario</button>
+          <button class="btn btn-primary btn-lg btn-block p-1" type="submit"><i class="fas fa-save"></i> Enviar formulario</button>
           <div class="errores d-none d-sm-block">
             <div class="ocultar text-danger mb-3  text-center" id="ocultarNombre">
               <p>Debe ingresar un nombre!</p>

@@ -1,4 +1,5 @@
-function validarCampos(){
+//javascript
+/*function validarCamposUsuarios(){
 	nombre=document.getElementById('nombre').value;
 	if(nombre == null || nombre.length == 0 || /^\s+$/.test(nombre) ) {
 		document.getElementById("ocultarNombre").style.display='block';
@@ -26,8 +27,126 @@ function validarCampos(){
 		cla= document.getElementById("clave");
 		cla.className += " is-invalid";
 		return false;
-		var notification = alertify.notify('sample', 'success', 5, function(){  console.log('dismissed'); });
 	}
 
-
+}*/
+function validarCamposClientes(){
+	nombre=document.getElementById('nombre').value;
+	if(nombre == null || nombre.length == 0 || /^\s+$/.test(nombre) ) {
+		document.getElementById("ocultarNombre").style.display='block';
+		nom= document.getElementById("nombre");
+		nom.className += " is-invalid";
+		return false;
+	}
+	dni=document.getElementById('dni').value;
+	if(dni == null || dni.length == 0 || /^\s+$/.test(dni) ) {
+		document.getElementById("ocultarDNI").style.display='block';
+		dni= document.getElementById("dni");
+		dni.className += " is-invalid";
+		return false;
+	}
+	telefono=document.getElementById('telefono').value;
+	if(telefono == null || telefono.length == 0 || /^\s+$/.test(telefono) ) {
+		document.getElementById("ocultarTelefono").style.display='block';
+		tel= document.getElementById("telefono");
+		tel.className += " is-invalid";
+		return false;
+	}
+	direccion=document.getElementById('direccion').value;
+	if(direccion == null || direccion.length == 0 || /^\s+$/.test(direccion) ) {
+		document.getElementById("ocultarDireccion").style.display='block';
+		dir= document.getElementById("direccion");
+		dir.className += " is-invalid";
+		return false;
+	}
 }
+
+//jquery
+$(document).ready(function(){
+//registro de usuario 	
+	$("#submit_registrar").click(function (e) {
+		e.preventDefault();
+
+		if($('#nombre').val() == '' || $('#correo').val()=='' || $('#usuario').val()=='' || $('#clave').val()=='')
+		{
+			$('#alerta').html('<p class="mb-2">Complete todos los campos</p>');
+			$('#alerta').toggle(1000);
+			return false;
+		}
+	    
+	    $('#loader').show();
+
+	    $.ajax({
+	    	url:"registro.php",
+	    	type:"post",
+	    	dataType:"text",
+	    	data:$('#form-ingreso').serialize(),
+	    	success:function(r){
+	    		//console.log(r);
+	    		$("#loader").hide();
+
+	    		if(r == 'userExist'){
+	    			
+	    			$('#alerta').html('<p class="mb-2">El usuario y/o correo ya existen ,ingrese otro</p>')
+	    			
+	    		}
+
+	    		if(r == 'errorDatos'){
+	    			$('#alerta').html('<p class="mb-2">Error al crear el usuario</p>')
+	    		}
+	    		if(r == 'save'){
+	    			$('#loader').show();
+	    			location.href="sistema.php";
+	    		}
+	    		
+	    	},
+	    	error:function(r){
+	    		$('#loader').hide();
+	    		console.log("Error",r);
+	    	}
+	    }); 
+	});
+//agregar usuario
+$("#submit_agregar_usuario").click(function (e) {
+		e.preventDefault();
+
+		if($('#nombre').val() == '' || $('#email').val()=='' || $('#usuario').val()=='' || $('#clave').val()=='')
+		{
+			$('#alerta').html('<p class="">Complete todos los campos</p>');
+			$('#alerta').toggle(1000);
+			return false;
+		}
+	    
+	    $('#loader').show();
+
+	    $.ajax({
+	    	url:"usuario.php",
+	    	type:"post",
+	    	dataType:"text",
+	    	data:$('#form_agregar_usuario').serialize(),
+	    	success:function(r){
+	    		console.log(r);
+	    		$("#loader").hide();
+	    	
+	    		if(r == 'userExist'){
+	    			
+	    			$('#alerta').html('<p class="mb-2">El usuario y/o correo ya existen ,ingrese otro</p>')
+	    			
+	    		}
+
+	    		if(r == 'errorDatos'){
+	    			$('#alerta').html('<p class="mb-2">Error al crear el usuario</p>')
+	    		}
+	    		if(r == 'save'){
+	    			$('#loader').show();
+	    		}
+	    		
+	    	},
+	    	error: function(r){
+		        	$('#loader').hide();
+		           console.log("Error",r);
+		        }	
+	    });
+	});
+});
+

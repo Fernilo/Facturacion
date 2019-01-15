@@ -1,27 +1,24 @@
 
 <?php 
 session_start(); 
-if($_SESSION['rol'] !=1){
+
+if($_SESSION['rol'] !=1 and $_SESSION['rol'] !=2){
 	header("location:sistema.php");
 }
+
 include("includes/conexion.php");
 if(!empty($_POST)){
-	if(empty($_POST['idusuario'])){
-		header("location:listausuarios.php");
+	if(empty($_POST['idcliente'])){
+		header("location:lista-clientes.php");
 		mysqli_close($db);
 	}
-	$idusu=$_POST['idusuario'];
-	if($_POST['idusuario']==1){
-		header("location:listausuarios.php");
-		mysqli_close($db);
-		exit;
-	}
-		//$sqlDelete="DELETE FROM usuario WHERE idusuario=$idusu";
-	$sqlUpdate="UPDATE usuario SET estatus =0 WHERE idusuario=$idusu";
+	$idcli=$_POST['idcliente'];
+	//$sqlDelete="DELETE FROM usuario WHERE idcliente=$idusu";
+	$sqlUpdate="UPDATE cliente SET estatus =0 WHERE idcliente=$idcli";
 	$rUpdate=mysqli_query($db,$sqlUpdate);
 	mysqli_close($db);
 	if($rUpdate){
-		header("location:listausuarios.php");
+		header("location:lista-clientes.php");
 	}else{
 		echo "Error al eliminar";
 	}
@@ -30,26 +27,26 @@ if(!empty($_POST)){
 
 
 
-if(empty($_REQUEST['id']) || $_REQUEST['id']==1){
-	header("location:listausuarios.php");
+if(empty($_REQUEST['id'])){
+	header("location:lista-clientes.php");
 	mysqli_close($db);
 }else{
-	$idusuario=$_REQUEST['id'];
-	$sqlLista="SELECT u.nombre,u.usuario,u.correo,r.rol FROM usuario u INNER JOIN rol r ON u.rol=r.idrol WHERE idusuario =$idusuario";
+	$idcli=$_REQUEST['id'];
+	$sqlLista="SELECT * FROM cliente WHERE idcliente =$idcli";
 	$rLista=mysqli_query($db,$sqlLista);
 	mysqli_close($db);
 	$numRowsLista=mysqli_num_rows($rLista);
 	if($numRowsLista>0){
 		while($rsLista=mysqli_fetch_array($rLista)){
 			$nombre=$rsLista['nombre'];
-			$usuario=$rsLista['usuario'];
-			$rol=$rsLista['rol'];
-			$correo=$rsLista['correo'];
+			$dni=$rsLista['dni'];
+			$telefono=$rsLista['telefono'];
+			$direccion=$rsLista['direccion'];
 
 
 		}
 	}else{
-		header("location:listausuarios.php");
+		header("location:lista-clientes.php");
 	}
 
 }
@@ -82,7 +79,7 @@ if(empty($_REQUEST['id']) || $_REQUEST['id']==1){
 			<?php include("includes/header.php"); ?>
 			<div class="row">
 				<div class="col-12">
-					<h2 class="text-secondary d-inline-block">Eliminar Usuario</h2>
+					<h2 class="text-secondary d-inline-block">Eliminar Cliente</h2>
 					<hr>
 				</div>
 			</div>
@@ -90,19 +87,19 @@ if(empty($_REQUEST['id']) || $_REQUEST['id']==1){
 				<div class="row">
 					<div class="col-12 text-center text-dark">
 						<h2><i class="fas fa-user-times fa-3x"></i></h2>
-						<h2>¿Seguro desea eliminar este usuario?</h2>
+						<h2>¿Seguro desea eliminar este cliente?</h2>
 						<p class="font-weight-bold">Nombre: <span class="text-info"><?php echo $nombre ?></span></p>
-						<p class="font-weight-bold">Usuario: <span class="text-info"><?php echo  $usuario ?></span></p>
-						<p class="font-weight-bold">Correo: <span class="text-info"><?php echo  $correo ?></span></p>
-						<p class="font-weight-bold">Rol: <span class="text-info"><?php echo $rol ?></span></p>
+						<p class="font-weight-bold">DNI: <span class="text-info"><?php echo  $dni ?></span></p>
+						<p class="font-weight-bold">Teléfono: <span class="text-info"><?php echo  $telefono ?></span></p>
+						<p class="font-weight-bold">Dirección: <span class="text-info"><?php echo $direccion ?></span></p>
 						
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-12 text-center mt-4">
 						<form action="" method="post">
-							<input type="hidden" name="idusuario" value="<?php echo $idusuario ?>">
-							<a href="listausuarios.php" class="btn btn-danger"><i class="fas fa-minus-circle"></i> Cancelar</a>
+							<input type="hidden" name="idcliente" value="<?php echo $idcli ?>">
+							<a href="lista-clientes.php" class="btn btn-danger"><i class="fas fa-minus-circle"></i> Cancelar</a>
 							<button type="submit" class="btn btn-warning"><i class="fas fa-trash-alt"></i> Aceptar</button>
 						</form>
 					</div>	
