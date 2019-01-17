@@ -62,25 +62,29 @@ else{
 	<title>Login</title>
 </head>
 <body>
-	<div class="container-fluid" id="container">
-		<div class="row">
-			<div class="col-12 bg-dark">
-				<form action="" method="post" id="form-ingreso">
-					<h3 class="bg-info">Sistema de facturación</h3>
-					<img src="img/ingresar2.png" alt="Login">
-					<input type="text" placeholder="Usuario" name="usuario" class="form-control mb-3 rounded">
-					<input type="password" name="password" placeholder="Contraseña" class="form-control  rounded">
-					<div class="alerta mt-3"><?php echo isset($alert) ? $alert:'';/* ?-> if resumido los dos puntos serian else*/ ?></div>
-					<button class="btn btn-primary btn-lg btn-block mt-3" type="submit">Ingresar</button>
-					<div class="mt-3 text-center">
-						<a href="registro.php" class="text-success sinlinea">¡Crear mi Usuario!</a>
-					</div>
-				</form>
+	<div class="container-fluid" >
+		<div id="container">
+			<div class="row">
+				<div class="col-12 bg-dark">
+					<form action="" method="post" id="form-ingreso">
+						<h3 class="bg-info">Sistema de facturación</h3>
+						<img src="img/ingresar2.png" alt="Login">
+						<input type="text" placeholder="Usuario" name="usuario" class="form-control mb-3 rounded">
+						<input type="password" name="password" placeholder="Contraseña" class="form-control  rounded">
+						<div class="alerta mt-3"><?php echo isset($alert) ? $alert:'';/* ?-> if resumido los dos puntos serian else*/ ?></div>
+						<button class="btn btn-primary btn-lg btn-block mt-3" type="submit">Ingresar</button>
+						<div class="mt-3 text-center">
+							<a href="registro.php" class="text-success sinlinea">¡Crear mi Usuario!</a>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 
-		
+		<?php include("includes/footer.php"); ?>
 	</div>
+	
+
 
 
 

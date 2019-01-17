@@ -60,39 +60,41 @@ else{
   <title>Facturación</title>
 </head>
 <body>
-  <div class="container-fluid" id="container">
-    <div id="loader"></div>
-    <div class="row">
-      <div class="col-12 bg-dark">
-        <form action="" method="post" id="form-ingreso">
-         <h3 class="bg-info">Registro de usuario</h3>
-         <div class="form-group">
-           <label for="correo" class="text-white">Nombre*</label>
-           <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
-         </div>
-         <div class="form-group">
-           <label for="email" class="text-white">Email*</label>
-           <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
-         </div>
-         <div class="form-group">
-           <label for="usuario" class="text-white">Usuario*</label>
-           <div class="input-group">
-             <div class="input-group-prepend">
-               <span class="input-group-text" id="">@</span>
-             </div>
-             <input type="text" class="form-control" id="usuario" placeholder="Usuario" name="usuario" aria-describedby="usuario">
+  <div class="container-fluid" >
+    <div id="container">
+      <div id="loader"></div>
+      <div class="row">
+        <div class="col-12 bg-dark">
+          <form action="" method="post" id="form-ingreso">
+           <h3 class="bg-info">Registro de usuario</h3>
+           <div class="form-group">
+             <label for="correo" class="text-white">Nombre*</label>
+             <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
            </div>
+           <div class="form-group">
+             <label for="email" class="text-white">Email*</label>
+             <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+           </div>
+           <div class="form-group">
+             <label for="usuario" class="text-white">Usuario*</label>
+             <div class="input-group">
+               <div class="input-group-prepend">
+                 <span class="input-group-text" id="">@</span>
+               </div>
+               <input type="text" class="form-control" id="usuario" placeholder="Usuario" name="usuario" aria-describedby="usuario">
+             </div>
+           </div>
+           <div class="form-group">
+             <label for="clave" class="text-white">Clave*</label>
+             <input type="password" name="clave" class="form-control" id="clave" placeholder="******">
+           </div>
+           <div id="alerta" class=""></div>    
+           <button type="submit" id="submit_registrar" class="btn btn-primary btn-block btn-lg">Registrarme</button>
+           
+         </form>
+       </div>
          </div>
-         <div class="form-group">
-           <label for="clave" class="text-white">Clave*</label>
-           <input type="password" name="clave" class="form-control" id="clave" placeholder="******">
-         </div>
-         <div id="alerta" class=""></div>    
-         <button type="submit" id="submit_registrar" class="btn btn-primary btn-block btn-lg">Registrarme</button>
-         
-       </form>
-     </div>
-   </div>
+    </div>
 
 
 
