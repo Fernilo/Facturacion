@@ -1,9 +1,7 @@
   <?php 
   session_start(); 
-  if($_SESSION['rol'] !=1){
-    header("location:sistema.php");
-  }
   include("includes/conexion.php");
+  
   //obtengo los datos enviados en el form
   if(!empty($_POST)){
     $alert='';
@@ -17,6 +15,7 @@
       $usuario=$_POST['usuario'];
       $clave=md5($_POST['clave']);
       $rol=$_POST['rol'];
+
 
       $sqlConsulta="SELECT * FROM usuario WHERE (usuario ='$usuario' AND idusuario!=$idusuario) OR (correo ='$email' AND idusuario!=$idusuario)";
       $rConsulta=mysqli_query($db,$sqlConsulta);
@@ -63,7 +62,7 @@
  }
  else{
   while($rsExiste=mysqli_fetch_array($rExiste)){
-    $idusuario=$rsExiste['idusuario'];
+    
     $nombre=$rsExiste['nombre'];
     $correo=$rsExiste['correo'];
     $usuario=$rsExiste['usuario'];
@@ -140,7 +139,10 @@
      <label for="clave" class="text-white">Clave</label>
      <input type="password" class="form-control" id="clave" name="clave" placeholder="Clave">
    </div>
-   <?php
+   <?php 
+   if($_SESSION['rol'] !=1){
+    
+  }else{
 
   $sqlRoles="SELECT * FROM rol";  
   $rRoles=mysqli_query($db,$sqlRoles);
@@ -164,7 +166,7 @@
       ?>
     </select>
   </div>
-  
+  <?php } ?>
 
   <button class="btn btn-primary btn-lg btn-block p-1" type="submit"><i class="fas fa-save"></i> Enviar formulario</button>
   <div class="errores d-none d-sm-block">

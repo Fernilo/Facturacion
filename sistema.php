@@ -23,33 +23,39 @@ if(empty($_SESSION['active'])){
 <body>
   <div class="container-fluid">
 
-     <?php include("includes/header.php"); ?>
-     <div class="row">
-      <div class="col-12">
-        <h2 class="text-secondary"><i class="fas fa-home"></i> Home</h2>
-        <hr>
-      </div>
+   <?php include("includes/header.php"); ?>
+   <div class="row">
+    <div class="col-12">
+      <h2 class="text-secondary"><i class="fas fa-home"></i> Home</h2>
+      <hr>
     </div>
-    <div class="row">
-      <div class="col-12">
-        <h5 class="text-secondary text-center"><?php echo $_SESSION['nombre']  ?> </h5>
-        <h5 class="text-secondary text-center"><?php echo $_SESSION['email']  ?> </h5>
-        <h5 class="text-secondary text-center"><?php echo $_SESSION['user']  ?> </h5>
-        <?php 
-          $sqlRol="SELECT * FROM rol WHERE idrol ='".$_SESSION['rol']."'";
-          $rRol=mysqli_query($db,$sqlRol);
-          $rsRol=mysqli_fetch_array($rRol);
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <?php $sqlDatos="SELECT * FROM usuario WHERE idusuario='".$_SESSION['idUser']."'";
+      $rDatos=mysqli_query($db,$sqlDatos);
+      $rsDatos=mysqli_fetch_array($rDatos);
 
-         ?>
-        <h5 class="text-secondary text-center"><?php echo $rsRol['rol'];  ?> </h5>
-      </div>
+
+      ?>
+      <h5 class="text-secondary text-center"><?php echo $rsDatos['nombre']  ?> </h5>
+      <h5 class="text-secondary text-center"><?php echo $rsDatos['correo']  ?> </h5>
+      <h5 class="text-secondary text-center"><?php echo $rsDatos['usuario']  ?> </h5>
+      <?php 
+      $sqlRol="SELECT * FROM rol WHERE idrol ='".$_SESSION['rol']."'";
+      $rRol=mysqli_query($db,$sqlRol);
+      $rsRol=mysqli_fetch_array($rRol);
+
+      ?>
+      <h5 class="text-secondary text-center"><?php echo $rsRol['rol'];  ?> </h5>
     </div>
-    <div class="row">
-      <div class="col-12">
-        <p class="text-center text-secondary font-italic font-weight-bold">Sistema de facturación creado en PHP, SQL,CSS,HTML,Ajax,Jquery con modulos ABML para clientes,usuarios,proveedores y productos.Contiene diferentes funcionalidades según el rol de usuario que esta interactuando(Admin,Supervisor,Vendedor).El sistema permite generar una factura segun la venta realizada por los diferentes vendedores.Actualmente se encuentran en desarrollo los modulos de proveedores,productos y facturación</p>
-      </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p class="text-center text-secondary font-italic font-weight-bold">Sistema de facturación creado en PHP, SQL,CSS,HTML,Ajax,Jquery y javascript con modulos ABML para clientes,usuarios,proveedores y productos.Contiene diferentes funcionalidades según el rol de usuario que esta interactuando(Admin,Supervisor,Vendedor).El sistema permite generar una factura segun la venta realizada por los diferentes vendedores.Actualmente se encuentran en desarrollo los modulos de proveedores,productos y facturación</p>
     </div>
-    <?php include("includes/footer.php"); ?>
+  </div>
+  <?php include("includes/footer.php"); ?>
 
 </div>
 

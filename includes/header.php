@@ -5,14 +5,20 @@ if(empty($_SESSION['active'])){
 ?>
   <div class="bg-info">
       <div class="row">
-        <div class="col-xs-12 col-md-10">
+        <div class="col-xs-12 col-md-8">
           <h4 class="text-white mt-1 ml-1 font-weight-bold">Sistema de facturacion</h4>
         </div>
 
-        <div class="col-xs-12 col-md-2 mt-md-2">
+        <div class="col-xs-12 col-md-4 mt-md-2">
 
           <img src="img/cara.jpg" width="30" height="30" class="d-inline-block align-top rounded" alt="">
-          <span class="text-white text-md-left"><?php echo $_SESSION['nombre'].' -'.$_SESSION['rol']; ?></span>
+          <?php $sqlDatos="SELECT * FROM usuario WHERE idusuario='".$_SESSION['idUser']."'";
+            $rDatos=mysqli_query($db,$sqlDatos);
+            $rsDatos=mysqli_fetch_array($rDatos);
+
+
+           ?>
+          <span class="text-white text-md-left"><?php echo $rsDatos['nombre'].' -'.$_SESSION['rol']; ?></span>
 
         </div> 
       </div>
@@ -82,7 +88,7 @@ if(empty($_SESSION['active'])){
                     <a class="nav-link" href="#">Action</a>
                   </div>
                   <div class="nav-item">
-                    <a class="nav-link" href="#">Another action</a>
+                    <a class="nav-link" href="editar-misdatos.php?id=<?php echo $_SESSION['idUser']; ?>"><i class="fas fa-edit"></i> Editar mis datos</a>
                   </div>
                   <div class="dropdown-divider"></div>
                   <div class="nav-item">

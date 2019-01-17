@@ -32,6 +32,7 @@ else{
         if($rInsertar){
           $_SESSION['active']=true;
           echo "save";exit();
+          $_SESSION['idUser']=$rsIngreso['idusuario'];
           //header('location:sistema.php');
         }else{
           echo "errorDatos";exit();
