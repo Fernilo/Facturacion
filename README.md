@@ -1,2 +1,2 @@
-### Sistema de facturación con html,css,bootstrap,ajax,jquery,javascript
+### Sistema de facturación creado en PHP, SQL,CSS,HTML,Ajax,Jquery y javascript con modulos ABML para clientes,usuarios,proveedores y productos.Contiene diferentes funcionalidades según el rol de usuario que esta interactuando(Admin,Supervisor,Vendedor).El sistema permite generar una factura segun la venta realizada por los diferentes vendedores.Actualmente se encuentran en desarrollo los modulos de proveedores,productos y facturación
 ![capturada](https://user-images.githubusercontent.com/21319653/51215910-47191a80-1901-11e9-85b7-253284591e02.jpg)
