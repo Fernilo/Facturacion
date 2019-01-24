@@ -24,7 +24,7 @@
         $rsConsulta=mysqli_fetch_array($rConsulta);
         
         if($rsConsulta>0){
-          echo "userExist";exit();
+          echo'userExist';exit();
         }
         else{
 
@@ -67,7 +67,8 @@
         <div id="loader"></div>
         <div class="row">
           <div class="col-12 col-md-4 offset-md-4">
-            <div id="alerta" class=""></div> 
+            <div id="alerta" class="alerta-correcto"></div>
+            <div id="" class="alerta-agregado"></div>
           </div>
         </div>
         <div class="row">

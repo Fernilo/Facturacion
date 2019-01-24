@@ -5,7 +5,7 @@
   //obtengo los datos enviados en el form
   if(!empty($_POST)){
     $alert='';
-    if(empty($_POST['nombre']) || empty($_POST['email']) || empty($_POST['usuario']) || empty($_POST['rol']) ){
+    if(empty($_POST['nombre']) || empty($_POST['email']) || empty($_POST['usuario']) ){
 
     }else{
 
@@ -14,7 +14,8 @@
       $email=$_POST['email'];
       $usuario=$_POST['usuario'];
       $clave=md5($_POST['clave']);
-      $rol=$_POST['rol'];
+
+      
 
 
       $sqlConsulta="SELECT * FROM usuario WHERE (usuario ='$usuario' AND idusuario!=$idusuario) OR (correo ='$email' AND idusuario!=$idusuario)";
@@ -28,11 +29,11 @@
       else{
         //Si ingreso algo en el campo clave se actualiza sino sigue la misma
         if(empty($_POST['clave'])){
-          $sqlUpdate="UPDATE usuario SET nombre='$nombre',correo='$email',usuario='$usuario',rol='$rol' WHERE idusuario=$idusuario";
+          $sqlUpdate="UPDATE usuario SET nombre='$nombre',correo='$email',usuario='$usuario' WHERE idusuario=$idusuario";
           $rUpdate=mysqli_query($db,$sqlUpdate);
         }
         else{
-          $sqlUpdate="UPDATE usuario SET nombre='$nombre',correo='$email',usuario='$usuario',rol='$rol',clave='$clave' WHERE idusuario=$idusuario";
+          $sqlUpdate="UPDATE usuario SET nombre='$nombre',correo='$email',usuario='$usuario',clave='$clave' WHERE idusuario=$idusuario";
           $rUpdate=mysqli_query($db,$sqlUpdate);
         }
         
@@ -62,7 +63,7 @@
  }
  else{
   while($rsExiste=mysqli_fetch_array($rExiste)){
-    
+
     $nombre=$rsExiste['nombre'];
     $correo=$rsExiste['correo'];
     $usuario=$rsExiste['usuario'];
@@ -70,13 +71,7 @@
     $rol=$rsExiste['rol'];
 
 
-    if($idrol==1){
-      $opcion='<option value="'.$idrol.'" select>'.$rol.'</option>';
-    }else if($idrol==2){
-      $opcion='<option value="'.$idrol.'" select>'.$rol.'</option>';
-    }else if($idrol==3){
-      $opcion='<option value="'.$idrol.'" select>'.$rol.'</option>';
-    }
+    
 
   }
 }
@@ -139,36 +134,10 @@
      <label for="clave" class="text-white">Clave</label>
      <input type="password" class="form-control" id="clave" name="clave" placeholder="Clave">
    </div>
-   <?php 
-   if($_SESSION['rol'] !=1){
-    
-  }else{
+   
+  
 
-  $sqlRoles="SELECT * FROM rol";  
-  $rRoles=mysqli_query($db,$sqlRoles);
-  $rsRoles=mysqli_num_rows($rRoles);
-
-  ?>    
-  <div class="form-group">
-    <label for="rol" class="text-white">Tipo usuario</label>
-    <select class="form-control notItem" id="rol" name="rol">
-      <?php 
-      echo $opcion;
-      if($rsRoles >0){
-        while($rol=mysqli_fetch_array($rRoles)){
-
-          ?>
-          <option value="<?php echo $rol['idrol'];?>"><?php echo $rol['rol'];?></option>
-
-          <?php    
-        }
-      }
-      ?>
-    </select>
-  </div>
-  <?php } ?>
-
-  <button class="btn btn-primary btn-lg btn-block p-1" type="submit"><i class="fas fa-save"></i> Enviar formulario</button>
+  <button class="btn btn-primary btn-lg btn-block p-2 mt-5" type="submit"><i class="fas fa-save"></i> Enviar formulario</button>
   <div class="errores d-none d-sm-block">
     <div class="ocultar text-danger mb-3  text-center" id="ocultarNombre">
       <p>Debe ingresar un nombre!</p>

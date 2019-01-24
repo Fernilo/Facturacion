@@ -28,11 +28,12 @@ else{
       else{
         $sqlInsertar="INSERT INTO usuario(nombre,correo,usuario,clave,rol) VALUES('".$_SESSION['nombre']."','".$_SESSION['email']."','".$_SESSION['user']."','$clave','".$_SESSION['rol']."')";
         $rInsertar=mysqli_query($db,$sqlInsertar);
+        $idusuario=mysqli_insert_id($db);
 
         if($rInsertar){
           $_SESSION['active']=true;
+          $_SESSION['idUser']=$idusuario;
           echo "save";exit();
-          $_SESSION['idUser']=$rsIngreso['idusuario'];
           //header('location:sistema.php');
         }else{
           echo "errorDatos";exit();

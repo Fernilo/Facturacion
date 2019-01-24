@@ -82,17 +82,18 @@ $(document).ready(function(){
 	    	dataType:"text",
 	    	data:$('#form-ingreso').serialize(),
 	    	success:function(r){
-	    		//console.log(r);
+	    	console.log(r);
 	    		$("#loader").hide();
 
 	    		if(r == 'userExist'){
 	    			
 	    			$('#alerta').html('<p class="mb-2">El usuario y/o correo ya existen ,ingrese otro</p>')
-	    			
+	    			$('#alerta').toggle(1000);
 	    		}
 
 	    		if(r == 'errorDatos'){
-	    			$('#alerta').html('<p class="mb-2">Error al crear el usuario</p>')
+	    			$('#alerta').html('<p class="mb-2">Error al crear el usuario</p>');
+	    			$('#alerta').toggle(1000);
 	    		}
 	    		if(r == 'save'){
 	    			$('#loader').show();
@@ -106,6 +107,8 @@ $(document).ready(function(){
 	    	}
 	    }); 
 	});
+
+
 //agregar usuario
 $("#submit_agregar_usuario").click(function (e) {
 		e.preventDefault();
@@ -124,29 +127,34 @@ $("#submit_agregar_usuario").click(function (e) {
 	    	type:"post",
 	    	dataType:"text",
 	    	data:$('#form_agregar_usuario').serialize(),
-	    	success:function(r){
-	    		console.log(r);
+	    	success:function(re){
+	    		console.log(re);
+	    		re=re.trim();
 	    		$("#loader").hide();
-	    	
-	    		if(r == 'userExist'){
-	    			
+	    		if(re =='userExist'){
 	    			$('#alerta').html('<p class="mb-2">El usuario y/o correo ya existen ,ingrese otro</p>')
-	    			
+	    			$('#alerta').toggle(1000);
 	    		}
 
-	    		if(r == 'errorDatos'){
-	    			$('#alerta').html('<p class="mb-2">Error al crear el usuario</p>')
+	    		if(re == 'errorDatos'){
+	    			$('#alerta').html('<p class="mb-2">Error al crear el usuario</p>');
+	    			$('#alerta').toggle(1000);
 	    		}
-	    		if(r == 'save'){
+	    		if(re == 'save'){
 	    			$('#loader').show();
+	    			$('.alerta-agregado').html('<p class="mb-2">Usuario agregado correctamente</p>');
+	    			$('.alerta-agregado').toggle(1000);
+	    			$('#loader').hide();
 	    		}
 	    		
+	    		
 	    	},
-	    	error: function(r){
+	    	error: function(re){
 		        	$('#loader').hide();
 		           console.log("Error",r);
 		        }	
 	    });
 	});
 });
+
 

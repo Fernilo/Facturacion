@@ -17,6 +17,7 @@ if(!empty($_POST)){
 		exit;
 	}
 		//$sqlDelete="DELETE FROM usuario WHERE idusuario=$idusu";
+
 	$sqlUpdate="UPDATE usuario SET estatus =0 WHERE idusuario=$idusu";
 	$rUpdate=mysqli_query($db,$sqlUpdate);
 	mysqli_close($db);
@@ -34,10 +35,10 @@ if(empty($_REQUEST['id']) || $_REQUEST['id']==1){
 	header("location:listausuarios.php");
 	mysqli_close($db);
 }else{
-	$idusuario=$_REQUEST['id'];
+	$idusuario=1;
 	$sqlLista="SELECT u.nombre,u.usuario,u.correo,r.rol FROM usuario u INNER JOIN rol r ON u.rol=r.idrol WHERE idusuario =$idusuario";
 	$rLista=mysqli_query($db,$sqlLista);
-	mysqli_close($db);
+	
 	$numRowsLista=mysqli_num_rows($rLista);
 	if($numRowsLista>0){
 		while($rsLista=mysqli_fetch_array($rLista)){
@@ -118,11 +119,9 @@ if(empty($_REQUEST['id']) || $_REQUEST['id']==1){
 
 
 
-	<script src="javascript/funciones.js"></script>
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="javascript/funciones.js"></script>
 </body>
 </html>

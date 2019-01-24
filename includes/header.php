@@ -13,7 +13,9 @@ if(empty($_SESSION['active'])){
 
           <img src="img/cara.jpg" width="30" height="30" class="d-inline-block align-top rounded" alt="">
           <?php $sqlDatos="SELECT * FROM usuario WHERE idusuario='".$_SESSION['idUser']."'";
+          
             $rDatos=mysqli_query($db,$sqlDatos);
+            
             $rsDatos=mysqli_fetch_array($rDatos);
 
 

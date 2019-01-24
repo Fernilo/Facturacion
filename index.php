@@ -9,7 +9,7 @@ else{
 
 	if(!empty($_POST)){
 		if(empty($_POST['usuario']) || empty($_POST['password'])){
-			$alert='<p class="">Ingrese usuario y contraseña</p> ';
+			$alert='<p class="alerta-incorrecto" id="">Ingrese usuario y contraseña</p> ';
 		}
 		else{
 			$user=mysqli_real_escape_string($db,$_POST['usuario']);
@@ -35,7 +35,7 @@ else{
 
 			}
 			else{
-				$alert='<p>Usuario y/o contraseña incorrectos</p>';
+				$alert='<p class="alerta-incorrecto">Usuario y/o contraseña incorrectos</p>';
 				session_destroy();
 			}
 		}
