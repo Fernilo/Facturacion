@@ -13,7 +13,7 @@ if(empty($_SESSION['active'])){
 
           <img src="img/cara.jpg" width="30" height="30" class="d-inline-block align-top rounded" alt="">
           <?php $sqlDatos="SELECT * FROM usuario WHERE idusuario='".$_SESSION['idUser']."'";
-          
+         
             $rDatos=mysqli_query($db,$sqlDatos);
             
             $rsDatos=mysqli_fetch_array($rDatos);
@@ -72,9 +72,31 @@ if(empty($_SESSION['active'])){
                   </div>
                 </div>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Proveedores</a>
+              <?php 
+                if($_SESSION['rol'] == 1 || $_SESSION['rol']== 2 ){
+
+
+               ?>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="far fa-building"></i> Proveedores
+                </a>
+                <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
+                  <div class="nav-item">
+                    <a class="nav-link" href="agregar-proveedor.php"><i class="far fa-building"></i> Agregar Prove.</a>
+                  </div>
+                  <div class="nav-item">
+                    <a class="nav-link" href="lista-proveedores.php"><i class="fas fa-users"></i> Lista Prove.</a>
+                  </div>
+                </div>
               </li>
+              <?php 
+                
+                }
+
+               ?>
+              
               <li class="nav-item">
                 <a class="nav-link" href="#">Productos</a>
               </li>

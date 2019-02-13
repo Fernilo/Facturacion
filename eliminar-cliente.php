@@ -1,11 +1,8 @@
-
 <?php 
 session_start(); 
-
 if($_SESSION['rol'] !=1 and $_SESSION['rol'] !=2){
 	header("location:sistema.php");
 }
-
 include("includes/conexion.php");
 if(!empty($_POST)){
 	if(empty($_POST['idcliente'])){
@@ -34,7 +31,6 @@ if(empty($_REQUEST['id'])){
 	$idcli=$_REQUEST['id'];
 	$sqlLista="SELECT * FROM cliente WHERE idcliente =$idcli";
 	$rLista=mysqli_query($db,$sqlLista);
-	mysqli_close($db);
 	$numRowsLista=mysqli_num_rows($rLista);
 	if($numRowsLista>0){
 		while($rsLista=mysqli_fetch_array($rLista)){
@@ -70,7 +66,7 @@ if(empty($_REQUEST['id'])){
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="styles/style.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	<title>Eliminar Usuario</title>
+	<title>Eliminar Cliente</title>
 </head>
 <body>
 	<div class="container-fluid">
@@ -79,7 +75,7 @@ if(empty($_REQUEST['id'])){
 			<?php include("includes/header.php"); ?>
 			<div class="row">
 				<div class="col-12">
-					<h2 class="text-secondary d-inline-block">Eliminar Cliente</h2>
+					<h2 class="text-secondary d-inline-block"><i class="fas fa-trash-alt"></i>Eliminar Cliente</h2>
 					<hr>
 				</div>
 			</div>

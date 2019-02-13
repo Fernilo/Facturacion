@@ -1,4 +1,3 @@
-
 <?php 
 session_start(); 
 if($_SESSION['rol'] !=1){
@@ -83,7 +82,7 @@ if(empty($_REQUEST['id']) || $_REQUEST['id']==1){
 			<?php include("includes/header.php"); ?>
 			<div class="row">
 				<div class="col-12">
-					<h2 class="text-secondary d-inline-block">Eliminar Usuario</h2>
+					<h2 class="text-secondary d-inline-block"><i class="fas fa-trash-alt"></i>Eliminar Usuario</h2>
 					<hr>
 				</div>
 			</div>

@@ -1,4 +1,4 @@
-  <?php
+<?php
   session_start();
   include("includes/conexion.php");
   if(!empty($_POST))

@@ -155,6 +155,54 @@ $("#submit_agregar_usuario").click(function (e) {
 		        }	
 	    });
 	});
+//agregar proveedor
+$("#submit_agregar_proveedor").click(function (e) {
+		e.preventDefault();
+
+		if($('#nombre').val() == '' || $('#contacto').val()=='' || $('#telefono').val()=='' || $('#direccion').val()=='')
+		{
+			$('#alerta').html('<p class="">Complete todos los campos</p>');
+			$('#alerta').toggle(1000);
+			return false;
+		}
+	    
+	    $('#loader').show();
+	   
+
+	    $.ajax({
+	    	url:"agregar-proveedor.php",
+	    	type:"post",
+	    	dataType:"text",
+	    	data:$('#form_agregar_proveedor').serialize(),
+	    	success:function(re){
+	    		console.log(re);
+	    		re=re.trim();
+	    		$("#loader").hide();
+	    		if(re =='userExist'){
+	    			$('#alerta').html('<p class="mb-2">El usuario y/o correo ya existen ,ingrese otro</p>')
+	    			$('#alerta').toggle(1000);
+	    		}
+
+	    		if(re == 'errorDatos'){
+	    			$('#alerta').html('<p class="mb-2">Error al crear el usuario</p>');
+	    			$('#alerta').toggle(1000);
+	    		}
+	    		if(re == 'save'){
+	    			$('#loader').show(5000);
+	    			$('.alerta-agregado').html('<p class="mb-2">Usuario agregado correctamente</p>');
+	    			$('.alerta-agregado').toggle(1000);
+	    			$('#loader').hide();
+	    		}
+	    		
+	    		
+	    	},
+	    	error: function(re){
+		        	$('#loader').hide();
+		           console.log("Error",r);
+		        }	
+	    });
+	});
 });
+
 
 
