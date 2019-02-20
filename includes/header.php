@@ -84,10 +84,10 @@ if(empty($_SESSION['active'])){
                 </a>
                 <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
                   <div class="nav-item">
-                    <a class="nav-link" href="agregar-proveedor.php"><i class="far fa-building"></i> Agregar Prove.</a>
+                    <a class="nav-link" href="agregar-proveedor.php"><i class="fas fa-briefcase"></i> Agregar Prove.</a>
                   </div>
                   <div class="nav-item">
-                    <a class="nav-link" href="lista-proveedores.php"><i class="fas fa-users"></i> Lista Prove.</a>
+                    <a class="nav-link" href="lista-proveedores.php"><i class="far fa-building"></i> Lista Prove.</a>
                   </div>
                 </div>
               </li>

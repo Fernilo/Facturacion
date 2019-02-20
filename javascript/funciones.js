@@ -179,17 +179,17 @@ $("#submit_agregar_proveedor").click(function (e) {
 	    		re=re.trim();
 	    		$("#loader").hide();
 	    		if(re =='userExist'){
-	    			$('#alerta').html('<p class="mb-2">El usuario y/o correo ya existen ,ingrese otro</p>')
+	    			$('#alerta').html('<p class="mb-2">El nombre  ya existe ,ingrese otro</p>')
 	    			$('#alerta').toggle(1000);
 	    		}
 
 	    		if(re == 'errorDatos'){
-	    			$('#alerta').html('<p class="mb-2">Error al crear el usuario</p>');
+	    			$('#alerta').html('<p class="mb-2">Error al crear el proveedor</p>');
 	    			$('#alerta').toggle(1000);
 	    		}
 	    		if(re == 'save'){
-	    			$('#loader').show(5000);
-	    			$('.alerta-agregado').html('<p class="mb-2">Usuario agregado correctamente</p>');
+	    			$('#loader').show();
+	    			$('.alerta-agregado').html('<p class="mb-2">Proveedor agregado correctamente</p>');
 	    			$('.alerta-agregado').toggle(1000);
 	    			$('#loader').hide();
 	    		}

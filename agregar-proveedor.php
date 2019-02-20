@@ -60,7 +60,7 @@
           <?php include("includes/header.php"); ?>
           <div class="row">
            <div class="col-12">
-            <h2 class="text-secondary"><i class="far fa-building"></i> Registro de Proveedores</h2>
+            <h2 class="text-secondary"><i class="fas fa-briefcase"></i> Registro de Proveedores</h2>
             <hr>
           </div>
         </div>
