@@ -17,27 +17,24 @@ include("includes/conexion.php");
 </head>
 <body>
   <div class="container-fluid">
-   <div class="">
-
      <?php include("includes/header.php"); ?>
      <div class="row">
-       <div class="col-8">
+       <div class=" col-xs-12 col-md-8">
           <h2 class="text-secondary d-inline-block"><i class="fas fa-users"></i> Lista de Clientes</h2>
           <a href="agregar-cliente.php" class="d-inline-block ml-1 btn btn-primary"><i class="fas fa-user-plus"></i> Agregar Cliente</a>
           <hr>
         </div>
-        <div class="col-4 mt-2">
+        <div class="col-xs-12 col-md-4 mt-md-2">
               <form class="form-inline my-2 my-lg-0" action="buscar-cliente.php" method="get">
-                <input class="form-control mr-sm-2" type="search" name="busqueda" placeholder="Buscar" aria-label="Search" value="">
+                <input class="form-control" type="search" name="busqueda" placeholder="Buscar" aria-label="Search" value="">
                 <button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
               </form> 
               <hr>
         </div>
-        
       </div>
 
     <div class="row" id="table">
-      <div class="col-12">
+      <div class="col-12 table-responsive">
         <table class="table table-striped table-dark table-hover">
           <thead>
             <tr>
@@ -148,7 +145,7 @@ include("includes/conexion.php");
     
     <?php include("includes/footer.php"); ?>
 
-  </div>
+  
 
 </div>
 

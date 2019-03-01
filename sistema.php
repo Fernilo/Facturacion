@@ -52,7 +52,9 @@ if(empty($_SESSION['active'])){
   </div>
   <div class="row">
     <div class="col-12">
-      <p class="text-center text-secondary font-italic font-weight-bold">Sistema de facturación creado en PHP, SQL,CSS,HTML,Ajax,Jquery y javascript con modulos ABML para clientes,usuarios,proveedores y productos.Contiene diferentes funcionalidades según el rol de usuario que esta interactuando(Admin,Supervisor,Vendedor).El sistema permite generar una factura segun la venta realizada por los diferentes vendedores.Actualmente se encuentran en desarrollo los modulos de proveedores,productos y facturación</p>
+      <p class="text-secondary font-italic font-weight-bold">Sistema de facturación creado en PHP, SQL,CSS,HTML,Ajax,Jquery y javascript con modulos ABML para clientes,usuarios,proveedores y productos.
+      Contiene diferentes funcionalidades según el rol de usuario que esta interactuando (Admin,Supervisor,Vendedor).
+      El sistema permite generar una factura segun la venta realizada por los diferentes vendedores.Actualmente se encuentran en desarrollo los modulos de proveedores,productos y facturación.El sistema se adapta a dispositivos como smartphones hasta monitores de tamaño medio(Diseño Responsivo)</p>
     </div>
   </div>
   <?php include("includes/footer.php"); ?>

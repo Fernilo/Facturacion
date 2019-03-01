@@ -37,17 +37,22 @@ body{
 	align-items: center;
 	
 }
-/*formulario de ingreso y registro*/
+/*------------------------Formulario de ingreso y registro-------------------------*/
 #form-ingreso{
-	width: 400px;
 	padding: 10px;
 	height: 505px;
 }
-
-#container form img{
+#contenedor form img{
 	margin:10px auto;
 	display: block;
 	text-align: center;
+}
+.form_register_ingreso{
+	margin: 70px auto auto;
+	padding: auto;
+	border-radius: 10px;
+	height: 520px;
+	
 }
 /*error en el ingreso de usuario y contraseña*/
 #alerta{
@@ -124,7 +129,8 @@ body{
 .notItem option:first-child{
 	display: none
 }
-/*paginador*/
+/*------------------------Paginador-------------------------*/
+
 .paginador ul{
 	padding: 15px;
 	list-style: none;

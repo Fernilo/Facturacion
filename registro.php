@@ -63,10 +63,10 @@ else{
 </head>
 <body>
   <div class="container-fluid" >
-    <div id="container">
+    
       <div id="loader"></div>
       <div class="row">
-        <div class="col-12 bg-dark">
+        <div class="form_register_ingreso bg-dark col-xs-12 col-md-4">
           <form action="" method="post" id="form-ingreso">
            <h3 class="bg-info">Registro de usuario</h3>
            <div class="form-group">
@@ -95,9 +95,8 @@ else{
            
          </form>
        </div>
-         </div>
-    </div>
-
+      </div>
+    
 
 
    <?php include("includes/footer.php"); ?>

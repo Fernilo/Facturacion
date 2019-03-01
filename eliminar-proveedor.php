@@ -5,23 +5,19 @@ if($_SESSION['rol'] !=1){
 }
 include("includes/conexion.php");
 if(!empty($_POST)){
-	if(empty($_POST['idusuario'])){
-		header("location:listausuarios.php");
+	if(empty($_POST['idproveedor'])){
+		header("location:lista-proveedores.php");
 		mysqli_close($db);
 	}
-	$idusu=$_POST['idusuario'];
-	if($_POST['idusuario']==1){
-		header("location:listausuarios.php");
-		mysqli_close($db);
-		exit;
-	}
+	$idprov=$_POST['idproveedor'];
+	
 		//$sqlDelete="DELETE FROM usuario WHERE idusuario=$idusu";
 
-	$sqlUpdate="UPDATE usuario SET estatus =0 WHERE idusuario=$idusu";
+	$sqlUpdate="UPDATE proveedor SET estatus =0 WHERE codproveedor=$idprov";
 	$rUpdate=mysqli_query($db,$sqlUpdate);
 	mysqli_close($db);
 	if($rUpdate){
-		header("location:listausuarios.php");
+		header("location:lista-proveedores.php");
 	}else{
 		echo "Error al eliminar";
 	}
@@ -31,25 +27,25 @@ if(!empty($_POST)){
 
 
 if(empty($_REQUEST['id']) || $_REQUEST['id']==1){
-	header("location:listausuarios.php");
+	header("location:lista-proveedores.php");
 	mysqli_close($db);
 }else{
-	$idusuario=$_REQUEST['id'];
-	$sqlLista="SELECT u.nombre,u.usuario,u.correo,r.rol FROM usuario u INNER JOIN rol r ON u.rol=r.idrol WHERE idusuario =$idusuario";
+	$idproveedor=$_REQUEST['id'];
+	$sqlLista="SELECT * FROM proveedor  WHERE codproveedor =$idproveedor";
 	$rLista=mysqli_query($db,$sqlLista);
 	
 	$numRowsLista=mysqli_num_rows($rLista);
 	if($numRowsLista>0){
 		while($rsLista=mysqli_fetch_array($rLista)){
-			$nombre=$rsLista['nombre'];
-			$usuario=$rsLista['usuario'];
-			$rol=$rsLista['rol'];
-			$correo=$rsLista['correo'];
+			$nombre=$rsLista['proveedor'];
+			$contacto=$rsLista['contacto'];
+			$telefono=$rsLista['telefono'];
+			$direccion=$rsLista['direccion'];
 
 
 		}
 	}else{
-		header("location:listausuarios.php");
+		header("location:lista-proveedores.php");
 	}
 
 }
@@ -73,7 +69,7 @@ if(empty($_REQUEST['id']) || $_REQUEST['id']==1){
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="styles/style.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	<title>Eliminar Usuario</title>
+	<title>Eliminar Proveedor</title>
 </head>
 <body>
 	<div class="container-fluid">
@@ -82,7 +78,7 @@ if(empty($_REQUEST['id']) || $_REQUEST['id']==1){
 			<?php include("includes/header.php"); ?>
 			<div class="row">
 				<div class="col-12">
-					<h2 class="text-secondary d-inline-block"><i class="fas fa-trash-alt"></i>Eliminar Usuario</h2>
+					<h2 class="text-secondary d-inline-block"><i class="fas fa-trash-alt"></i>Eliminar Proveedor</h2>
 					<hr>
 				</div>
 			</div>
@@ -90,19 +86,19 @@ if(empty($_REQUEST['id']) || $_REQUEST['id']==1){
 				<div class="row">
 					<div class="col-12 text-center text-dark">
 						<h2><i class="fas fa-user-times fa-3x"></i></h2>
-						<h2>¿Seguro desea eliminar este usuario?</h2>
+						<h2>¿Seguro desea eliminar este proveedor?</h2>
 						<p class="font-weight-bold">Nombre: <span class="text-info"><?php echo $nombre ?></span></p>
-						<p class="font-weight-bold">Usuario: <span class="text-info"><?php echo  $usuario ?></span></p>
-						<p class="font-weight-bold">Correo: <span class="text-info"><?php echo  $correo ?></span></p>
-						<p class="font-weight-bold">Rol: <span class="text-info"><?php echo $rol ?></span></p>
+						<p class="font-weight-bold">Contacto: <span class="text-info"><?php echo  $contacto ?></span></p>
+						<p class="font-weight-bold">direccion: <span class="text-info"><?php echo  $direccion ?></span></p>
+						<p class="font-weight-bold">Teléfono: <span class="text-info"><?php echo $telefono ?></span></p>
 						
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-12 text-center mt-4">
 						<form action="" method="post">
-							<input type="hidden" name="idusuario" value="<?php echo $idusuario ?>">
-							<a href="listausuarios.php" class="btn btn-danger"><i class="fas fa-minus-circle"></i> Cancelar</a>
+							<input type="hidden" name="idproveedor" value="<?php echo $idproveedor ?>">
+							<a href="lista-proveedores.php" class="btn btn-danger"><i class="fas fa-minus-circle"></i> Cancelar</a>
 							<button type="submit" class="btn btn-warning"><i class="fas fa-trash-alt"></i> Aceptar</button>
 						</form>
 					</div>	
