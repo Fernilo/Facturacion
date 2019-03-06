@@ -26,7 +26,7 @@ if(!empty($_POST)){
 
 
 
-if(empty($_REQUEST['id']) || $_REQUEST['id']==1){
+if(empty($_REQUEST['id'])){
 	header("location:lista-proveedores.php");
 	mysqli_close($db);
 }else{

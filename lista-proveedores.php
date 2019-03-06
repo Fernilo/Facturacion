@@ -26,7 +26,7 @@ include("includes/conexion.php");
      <div class="row">
        <div class="col-xs-12 col-md-8">
           <h2 class="text-secondary d-inline-block"><i class="far fa-building"></i> Lista de Proveedores</h2>
-          <a href="agregar-proveedor.php" class="d-inline-block ml-1 btn btn-primary"><i class="fas fa-user-plus"></i> Agregar Proveedor</a>
+          <a href="agregar-proveedor.php" class="d-inline-block ml-1 btn btn-primary"><i class="fas fa-briefcase"></i> Agregar Proveedor</a>
           <hr>
         </div>
         <div class="col-xs-12 col-md-4 mt-md-2">

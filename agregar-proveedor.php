@@ -62,48 +62,48 @@
            <div class="col-12">
             <h2 class="text-secondary"><i class="fas fa-briefcase"></i> Registro de Proveedores</h2>
             <hr>
+            </div>
           </div>
-        </div>
-        <div id="loader"></div>
-        <div class="row">
-          <div class="col-12 col-md-4 offset-md-4">
-            <div id="alerta" class="alerta-correcto"></div>
-            <div id="" class="alerta-agregado"></div>
+          <div id="loader"></div>
+          <div class="row">
+            <div class="col-12 col-md-4 offset-md-4">
+              <div id="alerta" class="alerta-correcto"></div>
+              <div id="" class="alerta-agregado"></div>
+            </div>
           </div>
+        
+          <div class="row">
+            <div class="col-12 form_register col-md-4  bg-dark">
+              <form  action="" method="post" id="form_agregar_proveedor" >
+                   <h5 class="text-center text-info">Formulario</h5>
+                   <div class="col-xs-4 form-group">
+                     <label for="nombre" class="text-white">Nombre</label>
+                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+                   </div>
+                   <div class="form-group">
+                     <label for="contacto" class="text-white">Contacto</label>
+                     <input type="text" class="form-control" id="contacto" name="contacto" placeholder="Nombre del contacto" value="" >
+                   </div>
+                   <div class="form-group">
+                    <label for="telefono" class="text-white">Teléfono</label>
+                    <div class="input-group">
+                     <input type="number" class="form-control" id="telefono" placeholder="Teléfono" name="telefono">
+                    </div>
+                   </div>
+                   <div class="form-group">
+                     <label for="direccion" class="text-white">Dirección</label>
+                     <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Direccion completa">
+                   </div>
+            
+                   <button class="btn btn-primary btn-lg btn-block mt-5 mb-3" id="submit_agregar_proveedor" type="submit"><i class="fas fa-save"></i> Enviar formulario</button>
+            
+               </form>
+            
+            </div>
+          </div>
+     
+          <?php include("includes/footer.php"); ?>
         </div>
-        <div class="row">
-          <div class="form_register bg-dark col-xs-12 col-md-4">
-
-            <form  action="" method="post" id="form_agregar_proveedor" >
-             <h5 class="text-center text-info">Formulario</h5>
-             <div class="col-xs-4 form-group">
-               <label for="nombre" class="text-white">Nombre</label>
-               <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
-             </div>
-             <div class="form-group">
-               <label for="contacto" class="text-white">Contacto</label>
-               <input type="text" class="form-control" id="contacto" name="contacto" placeholder="Nombre del contacto" value="" >
-             </div>
-             <div class="form-group">
-              <label for="telefono" class="text-white">Teléfono</label>
-              <div class="input-group">
-               <input type="number" class="form-control" id="telefono" placeholder="Teléfono" name="telefono">
-             </div>
-           </div>
-           <div class="form-group">
-             <label for="direccion" class="text-white">Dirección</label>
-             <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Direccion completa">
-           </div>
-
-           <button class="btn btn-primary btn-lg btn-block mt-5 mb-3" id="submit_agregar_proveedor" type="submit"><i class="fas fa-save"></i> Enviar formulario</button>
-
-         </form>
-
-
-       </div>
-     </div>
-     <?php include("includes/footer.php"); ?>
-   </div>
 
 
 

@@ -66,7 +66,7 @@ else{
     
       <div id="loader"></div>
       <div class="row">
-        <div class="form_register_ingreso bg-dark col-xs-12 col-md-4">
+        <div class="form_register_ingreso bg-dark col-12 col-md-4">
           <form action="" method="post" id="form-ingreso">
            <h3 class="bg-info">Registro de usuario</h3>
            <div class="form-group">

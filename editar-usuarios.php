@@ -114,75 +114,77 @@
       <div class=""><?php echo isset($alert) ? $alert: ''; ?></div>
     </div>
   </div>
-  <div class="form_register bg-dark col-xs-12 col-md-4">
-    <form onsubmit="" action="" method="post" >
-     <h5 class="text-center text-info">Formulario</h5>
-     <input type="hidden" name="id" value="  <?php echo $idusuario ?> ">
-     <div class="col-xs-4 form-group">
-       <label for="nombre" class="text-white">Nombre</label>
-       <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value=" <?php echo $nombre; ?> ">
-     </div>
-     <div class="form-group">
-       <label for="email" class="text-white">Email</label>
-       <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $correo; ?> " >
-     </div>
-     <div class="form-group">
-      <label for="usuario" class="text-white">Usuario</label>
-      <div class="input-group">
-       <div class="input-group-prepend">
-         <span class="input-group-text" id="">@</span>
+  <div class="row">
+    <div class="form_register bg-dark col-12 col-md-4">
+      <form onsubmit="" action="" method="post" >
+       <h5 class="text-center text-info">Formulario</h5>
+       <input type="hidden" name="id" value="  <?php echo $idusuario ?> ">
+       <div class="col-xs-4 form-group">
+         <label for="nombre" class="text-white">Nombre</label>
+         <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value=" <?php echo $nombre; ?> ">
        </div>
-       <input type="text" class="form-control" id="usuario" placeholder="Usuario" name="usuario" aria-describedby="usuario"  value="<?php echo $usuario; ?>" >
+       <div class="form-group">
+         <label for="email" class="text-white">Email</label>
+         <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $correo; ?> " >
+       </div>
+       <div class="form-group">
+        <label for="usuario" class="text-white">Usuario</label>
+        <div class="input-group">
+         <div class="input-group-prepend">
+           <span class="input-group-text" id="">@</span>
+         </div>
+         <input type="text" class="form-control" id="usuario" placeholder="Usuario" name="usuario" aria-describedby="usuario"  value="<?php echo $usuario; ?>" >
+       </div>
      </div>
-   </div>
-
-   <div class="form-group">
-     <label for="clave" class="text-white">Clave</label>
-     <input type="password" class="form-control" id="clave" name="clave" placeholder="Clave">
-   </div>
-   <?php
-
-  $sqlRoles="SELECT * FROM rol";  
-  $rRoles=mysqli_query($db,$sqlRoles);
-  $rsRoles=mysqli_num_rows($rRoles);
-
-  ?>    
-  <div class="form-group">
-    <label for="rol" class="text-white">Tipo usuario</label>
-    <select class="form-control notItem" id="rol" name="rol">
-      <?php 
-      echo $opcion;
-      if($rsRoles >0){
-        while($rol=mysqli_fetch_array($rRoles)){
-
+    
+     <div class="form-group">
+       <label for="clave" class="text-white">Clave</label>
+       <input type="password" class="form-control" id="clave" name="clave" placeholder="Clave">
+     </div>
+     <?php
+    
+      $sqlRoles="SELECT * FROM rol";  
+      $rRoles=mysqli_query($db,$sqlRoles);
+      $rsRoles=mysqli_num_rows($rRoles);
+    
+      ?>    
+      <div class="form-group">
+        <label for="rol" class="text-white">Tipo usuario</label>
+        <select class="form-control notItem" id="rol" name="rol">
+          <?php 
+          echo $opcion;
+          if($rsRoles >0){
+            while($rol=mysqli_fetch_array($rRoles)){
+    
+              ?>
+              <option value="<?php echo $rol['idrol'];?>"><?php echo $rol['rol'];?></option>
+    
+              <?php    
+            }
+          }
           ?>
-          <option value="<?php echo $rol['idrol'];?>"><?php echo $rol['rol'];?></option>
-
-          <?php    
-        }
-      }
-      ?>
-    </select>
+        </select>
+        </div>
+    
+    
+        <button class="btn btn-primary btn-lg btn-block p-1" type="submit"><i class="fas fa-save"></i> Enviar formulario</button>
+        <div class="errores d-none d-sm-block">
+          <div class="ocultar text-danger mb-3  text-center" id="ocultarNombre">
+            <p>Debe ingresar un nombre!</p>
+          </div> 
+          <div class="ocultar text-danger mb-3 text-center" id="ocultarEmail">
+            <p>Debe ingresar un Email!</p>
+          </div> 
+          <div class="ocultar text-danger mb-3 text-center" id="ocultarUsuario">
+            <p>Debe ingresar un usuario!</p>
+          </div> 
+          <div class="ocultar text-danger  text-center" id="ocultarClave">
+            <p>Debe ingresar una Clave!</p>
+          </div> 
+        </div>
+      </form>
+    </div>
   </div>
-  
-
-  <button class="btn btn-primary btn-lg btn-block p-1" type="submit"><i class="fas fa-save"></i> Enviar formulario</button>
-  <div class="errores d-none d-sm-block">
-    <div class="ocultar text-danger mb-3  text-center" id="ocultarNombre">
-      <p>Debe ingresar un nombre!</p>
-    </div> 
-    <div class="ocultar text-danger mb-3 text-center" id="ocultarEmail">
-      <p>Debe ingresar un Email!</p>
-    </div> 
-    <div class="ocultar text-danger mb-3 text-center" id="ocultarUsuario">
-      <p>Debe ingresar un usuario!</p>
-    </div> 
-    <div class="ocultar text-danger  text-center" id="ocultarClave">
-      <p>Debe ingresar una Clave!</p>
-    </div> 
-  </div>
-</form>
-</div>
 
 <?php include("includes/footer.php"); ?>
 

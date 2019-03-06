@@ -60,6 +60,36 @@ function validarCamposClientes(){
 		return false;
 	}
 }
+function validarCamposProveedor() {
+    nombre = document.getElementById('nombre').value;
+    if (nombre == null || nombre.length == 0 || /^\s+$/.test(nombre)) {
+        document.getElementById("ocultarNombre").style.display = 'block';
+        nom = document.getElementById("nombre");
+        nom.className += " is-invalid";
+        return false;
+    }
+    cont = document.getElementById('contacto').value;
+    if (cont == null || cont.length == 0 || /^\s+$/.test(cont)) {
+        document.getElementById("ocultarContacto").style.display = 'block';
+        con = document.getElementById("contacto");
+        con.className += " is-invalid";
+        return false;
+    }
+    telefono = document.getElementById('telefono').value;
+    if (telefono == null || telefono.length == 0 || /^\s+$/.test(telefono)) {
+        document.getElementById("ocultarTelefono").style.display = 'block';
+        tel = document.getElementById("telefono");
+        tel.className += " is-invalid";
+        return false;
+    }
+    direccion = document.getElementById('direccion').value;
+    if (direccion == null || direccion.length == 0 || /^\s+$/.test(direccion)) {
+        document.getElementById("ocultarDireccion").style.display = 'block';
+        dir = document.getElementById("direccion");
+        dir.className += " is-invalid";
+        return false;
+    }
+}
 
 //jquery
 $(document).ready(function(){

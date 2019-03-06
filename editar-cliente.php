@@ -98,47 +98,49 @@ else{
       <div class=""><?php echo isset($alert) ? $alert: ''; ?></div>
     </div>
   </div>
-  <div class="form_register bg-dark col-xs-12 col-md-4">
-    <form onsubmit="return validarCamposClientes()" action="" method="post" >
-     <h5 class="text-center text-info">Formulario</h5>
-     <input type="hidden" name="id" value="<?php echo $idcliente ?> " >
-     <div class="col-xs-4 form-group">
-       <label for="nombre" class="text-white">Nombre</label>
-       <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $nombre ?>">
-     </div>
-     <div class="form-group">
-       <label for="dni" class="text-white">DNI</label>
-       <input type="number" class="form-control" id="dni" name="dni" value="<?php echo $dni ?>" >
-     </div>
-     <div class="form-group">
-      <label for="telefono" class="text-white">Teléfono</label>
-      <div class="input-group">
-       <input type="number" class="form-control" id="telefono" value="<?php echo $telefono ?>" name="telefono">
-     </div>
-   </div>
-   <div class="form-group">
-     <label for="direccion" class="text-white">Dirección</label>
-     <input type="text" class="form-control" id="direccion" value="<?php echo $direccion ?> " name="direccion">
-   </div>
-
-   <button class="btn btn-primary btn-lg btn-block mt-5 mb-3" type="submit"><i class="fas fa-save"></i> Enviar formulario</button>
-
-   <div class="errores d-none d-sm-block">
-    <div class="ocultar text-danger mb-3  text-center" id="ocultarNombre">
-      <p>Debe ingresar un nombre!</p>
-    </div> 
-    <div class="ocultar text-danger mb-3 text-center" id="ocultarDNI">
-      <p>Debe ingresar un DNI!</p>
-    </div>  
-    <div class="ocultar text-danger mb-3 text-center" id="ocultarTelefono">
-      <p>Debe ingresar una Telefóno!</p>
+ <div class="row">
+    <div class="form_register bg-dark col-xs-12 col-md-4">
+     <form onsubmit="return validarCamposClientes()" action="" method="post" >
+      <h5 class="text-center text-info">Formulario</h5>
+      <input type="hidden" name="id" value="<?php echo $idcliente ?> " >
+      <div class="col-xs-4 form-group">
+        <label for="nombre" class="text-white">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $nombre ?>">
+      </div>
+      <div class="form-group">
+        <label for="dni" class="text-white">DNI</label>
+        <input type="number" class="form-control" id="dni" name="dni" value="<?php echo $dni ?>" >
+      </div>
+      <div class="form-group">
+       <label for="telefono" class="text-white">Teléfono</label>
+       <div class="input-group">
+        <input type="number" class="form-control" id="telefono" value="<?php echo $telefono ?>" name="telefono">
+      </div>
     </div>
-    <div class="ocultar text-danger  text-center" id="ocultarDireccion">
-      <p>Debe ingresar una Dirección!</p>
-    </div> 
-  </div>
-</form>
-</div>
+    <div class="form-group">
+      <label for="direccion" class="text-white">Dirección</label>
+      <input type="text" class="form-control" id="direccion" value="<?php echo $direccion ?> " name="direccion">
+    </div>
+   
+    <button class="btn btn-primary btn-lg btn-block mt-5 mb-3" type="submit"><i class="fas fa-save"></i> Enviar formulario</button>
+   
+    <div class="errores d-none d-sm-block">
+     <div class="ocultar text-danger mb-3  text-center" id="ocultarNombre">
+       <p>Debe ingresar un nombre!</p>
+     </div> 
+     <div class="ocultar text-danger mb-3 text-center" id="ocultarDNI">
+       <p>Debe ingresar un DNI!</p>
+     </div>  
+     <div class="ocultar text-danger mb-3 text-center" id="ocultarTelefono">
+       <p>Debe ingresar una Telefóno!</p>
+     </div>
+     <div class="ocultar text-danger  text-center" id="ocultarDireccion">
+       <p>Debe ingresar una Dirección!</p>
+     </div> 
+       </div>
+     </form>
+   </div>
+ </div>
 
 <?php include("includes/footer.php"); ?>
 

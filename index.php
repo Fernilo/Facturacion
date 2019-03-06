@@ -65,7 +65,7 @@ else{
 	<div class="container-fluid" >
 		<div id="contenedor">
 			<div class="row">
-					<div class="form_register_ingreso bg-dark col-xs-12 col-md-4">
+					<div class="form_register_ingreso bg-dark col-12 col-md-4">
 						<form action="" method="post" id="form-in">
 							<h3 class="bg-info">Sistema de facturación</h3>
 							<img src="img/ingresar2.png" alt="Login">
