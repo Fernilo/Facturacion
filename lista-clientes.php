@@ -26,7 +26,7 @@ include("includes/conexion.php");
         </div>
         <div class="col-xs-12 col-md-4 mt-md-2">
               <form class="form-inline my-2 my-lg-0" action="buscar-cliente.php" method="get">
-                <input class="form-control" type="search" name="busqueda" placeholder="Buscar" aria-label="Search" value="">
+                <input class="form-control mr-sm-2" type="search" name="busqueda" placeholder="Buscar" aria-label="Search" value="">
                 <button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
               </form> 
               <hr>

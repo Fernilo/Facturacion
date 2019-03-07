@@ -56,52 +56,34 @@ body{
 }
 /*------------------------Formularios y errores-------------------------*/
 
-#alerta{
-	background-color:#e74c3c ;
-	border-radius:20px;
-	margin: auto;
-	color:#fff;
-	text-align: center;
-	font-size: 15px;
-	font-weight: bold;
+#alerta-mal{
 	display: none;
-	padding: 1px;
-}
-.alerta-agregado{
-	background-color:#27ae60 ;
-	border-radius:20px;
-	margin: auto;
-	color:#fff;
-	text-align: center;
-	font-size: 15px;
-	font-weight: bold;
-	display: none;
-	padding: 1px;
-
-}
-.ubicar_submit{
-	position: relative;
-	top:30px;
 	
 }
-.form_register{
-	margin: auto;
-	padding: auto;
-	border-radius: 10px;
-	height: 600px;
-}
-.errores{
-	width: 300px;
-	text-align: center;
-	margin: auto;
-	padding: auto;
-}
-/*ocultar mensajes de errores*/
-.ocultar{
+#alerta-bien{
 	display: none;
-	height: 5px;
 }
-/* alertas de mesanjes*/
+.mal{
+	background-color:#e74c3c ;
+	border-radius:20px;
+	margin: 5px auto;
+	color:#fff;
+	padding:10px;
+	text-align: center;
+	font-size: 17px;
+	font-weight: bold;
+}
+.bien{
+	background-color: #27ae60;
+	border-radius:20px;
+	margin: 5px auto;
+	color:#fff;
+	padding:10px;
+	text-align: center;
+	font-size: 17px;
+	font-weight: bold;
+}
+
 .alerta-correcto{
 	background-color: #27ae60;
 	border-radius:20px;
@@ -125,6 +107,31 @@ body{
 	font-weight: bold;
 	
 }
+.ubicar_submit{
+	position: relative;
+	top:30px;
+	
+}
+.form_register{
+	margin: auto;
+	padding: auto;
+	border-radius: 10px;
+	height: 600px;
+}
+.errores{
+	width: 300px;
+	text-align: center;
+	margin: auto;
+	padding: auto;
+}
+/*ocultar mensajes de errores*/
+.ocultar{
+	display: none;
+	height: 5px;
+}
+
+
+
 
 
 .notItem option:first-child{

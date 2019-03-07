@@ -99,8 +99,8 @@ $(document).ready(function(){
 
 		if($('#nombre').val() == '' || $('#correo').val()=='' || $('#usuario').val()=='' || $('#clave').val()=='')
 		{
-			$('#alerta').html('<p class="mb-2">Complete todos los campos</p>');
-			$('#alerta').toggle(1000);
+			$('#alerta-mal').html('<p class="mb-2 mal">Complete todos los campos</p>');
+			$('#alerta-mal').toggle(1000);
 			return false;
 		}
 	    
@@ -117,13 +117,13 @@ $(document).ready(function(){
 
 	    		if(r == 'userExist'){
 	    			
-	    			$('#alerta').html('<p class="mb-2">El usuario y/o correo ya existen ,ingrese otro</p>')
-	    			$('#alerta').toggle(1000);
+	    			$('#alerta-mal').html('<p class="mb-2 mal">El usuario y/o correo ya existen</p>')
+	    			$('#alerta-mal').toggle(1000);
 	    		}
 
 	    		if(r == 'errorDatos'){
-	    			$('#alerta').html('<p class="mb-2">Error al crear el usuario</p>');
-	    			$('#alerta').toggle(1000);
+	    			$('#alerta-mal').html('<p class="mb-2 mal">Error al crear el usuario</p>');
+	    			$('#alerta-mal').toggle(1000);
 	    		}
 	    		if(r == 'save'){
 	    			$('#loader').show();
@@ -145,8 +145,8 @@ $("#submit_agregar_usuario").click(function (e) {
 
 		if($('#nombre').val() == '' || $('#email').val()=='' || $('#usuario').val()=='' || $('#clave').val()=='')
 		{
-			$('#alerta').html('<p class="">Complete todos los campos</p>');
-			$('#alerta').toggle(1000);
+			$('#alerta-mal').html('<p class="mal">Complete todos los campos</p>');
+			$('#alerta-mal').toggle(1000);
 			return false;
 		}
 	    
@@ -162,18 +162,18 @@ $("#submit_agregar_usuario").click(function (e) {
 	    		re=re.trim();
 	    		$("#loader").hide();
 	    		if(re =='userExist'){
-	    			$('#alerta').html('<p class="mb-2">El usuario y/o correo ya existen ,ingrese otro</p>')
-	    			$('#alerta').toggle(1000);
+	    			$('#alerta-mal').html('<p class="mal">El usuario y/o correo ya existen ,ingrese otro</p>')
+	    			$('#alerta-mal').toggle(1000);
 	    		}
 
 	    		if(re == 'errorDatos'){
-	    			$('#alerta').html('<p class="mb-2">Error al crear el usuario</p>');
-	    			$('#alerta').toggle(1000);
+	    			$('#alerta-mal').html('<p class="mal">Error al crear el usuario</p>');
+	    			$('#alerta-mal').toggle(1000);
 	    		}
 	    		if(re == 'save'){
 	    			$('#loader').show();
-	    			$('.alerta-agregado').html('<p class="mb-2">Usuario agregado correctamente</p>');
-	    			$('.alerta-agregado').toggle(1000);
+	    			$('#alerta-bien').html('<p class="bien">Usuario agregado correctamente</p>');
+	    			$('#alerta-bien').toggle(1000);
 	    			$('#loader').hide();
 	    		}
 	    		
@@ -191,8 +191,8 @@ $("#submit_agregar_proveedor").click(function (e) {
 
 		if($('#nombre').val() == '' || $('#contacto').val()=='' || $('#telefono').val()=='' || $('#direccion').val()=='')
 		{
-			$('#alerta').html('<p class="">Complete todos los campos</p>');
-			$('#alerta').toggle(1000);
+			$('#alerta-mal').html('<p class="mal">Complete todos los campos</p>');
+			$('#alerta-mal').toggle(1000);
 			return false;
 		}
 	    
@@ -209,18 +209,18 @@ $("#submit_agregar_proveedor").click(function (e) {
 	    		re=re.trim();
 	    		$("#loader").hide();
 	    		if(re =='userExist'){
-	    			$('#alerta').html('<p class="mb-2">El nombre  ya existe ,ingrese otro</p>')
-	    			$('#alerta').toggle(1000);
+	    			$('#alerta-mal').html('<p class="mal">El nombre  ya existe ,ingrese otro</p>')
+	    			$('#alerta-mal').toggle(1000);
 	    		}
 
 	    		if(re == 'errorDatos'){
-	    			$('#alerta').html('<p class="mb-2">Error al crear el proveedor</p>');
-	    			$('#alerta').toggle(1000);
+	    			$('#alerta-mal').html('<p class="mal">Error al crear el proveedor</p>');
+	    			$('#alerta-mal').toggle(1000);
 	    		}
 	    		if(re == 'save'){
 	    			$('#loader').show();
-	    			$('.alerta-agregado').html('<p class="mb-2">Proveedor agregado correctamente</p>');
-	    			$('.alerta-agregado').toggle(1000);
+	    			$('#alerta-bien').html('<p class="bien">Proveedor agregado correctamente</p>');
+	    			$('#alerta-bien').toggle(1000);
 	    			$('#loader').hide();
 	    		}
 	    		

@@ -67,8 +67,8 @@
           <div id="loader"></div>
           <div class="row">
             <div class="col-12 col-md-4 offset-md-4">
-              <div id="alerta" class="alerta-correcto"></div>
-              <div id="" class="alerta-agregado"></div>
+              <div id="alerta-mal" class=""></div>
+              <div id="alerta-bien" class=""></div>
             </div>
           </div>
         
