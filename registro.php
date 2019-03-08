@@ -63,7 +63,6 @@ else{
 </head>
 <body>
   <div class="container-fluid" >
-    
       <div id="loader"></div>
       <div class="row">
         <div class="form_register_ingreso bg-dark col-12 col-md-4">

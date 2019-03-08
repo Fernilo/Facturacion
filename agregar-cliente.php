@@ -71,8 +71,8 @@
         </div>
       </div>
 
-      <div class="">
-        <div class="form_register bg-dark col-12 col-md-4">
+      <div class="row">
+        <div class="col-12 form_register col-md-4  bg-dark">
           <form onsubmit="return validarCamposClientes()" action="" method="post" >
            <h5 class="text-center text-info">Formulario</h5>
            <div class="col-xs-4 form-group">

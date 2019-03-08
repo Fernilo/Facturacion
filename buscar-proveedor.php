@@ -1,9 +1,13 @@
 <?php
 session_start(); 
+if($_SESSION['rol'] !=1 and $_SESSION['rol'] !=2 ){
+    header("location:sistema.php");
+  }
+
 include("includes/conexion.php");
   $busqueda=strtolower($_REQUEST['busqueda']);
   if(empty($busqueda)){
-  header("location:lista-clientes.php");
+  header("location:lista-proveedores.php");
   mysqli_close($db);
   }
               
@@ -20,7 +24,7 @@ include("includes/conexion.php");
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
 
-  <title>Lista de Clientes</title>
+  <title>Lista de Proveedores</title>
 </head>
 <body>
   <div class="container-fluid">
@@ -31,8 +35,8 @@ include("includes/conexion.php");
      <?php include("includes/header.php"); ?>
      <div class="row">
        <div class="col-xs-12 col-md-8">
-          <h2 class="text-secondary d-inline-block"><i class="fas fa-users"></i> Lista de Clientes</h2>
-          <a href="agregar-cliente.php" class="d-inline-block ml-1 btn btn-primary"><i class="fas fa-user-plus"></i> Agregar Cliente</a>
+          <h2 class="text-secondary d-inline-block"><i class="far fa-building"></i> Lista de Proveedores</h2>
+          <a href="agregar-proveedor.php" class="d-inline-block ml-1 btn btn-primary"><i class="fas fa-briefcase"></i> Agregar Proveedor</a>
           <hr>
         </div>
         <div class="col-xs-12 col-md-4 mt-md-2">
@@ -51,15 +55,16 @@ include("includes/conexion.php");
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Nombre</th>
-              <th scope="col">DNI</th>
+              <th scope="col">Contacto</th>
               <th scope="col">Teléfono</th>
-              <th scope="col" class="">Rol</th>
+              <th scope="col" class="">Dirección</th>
+              <th scope="col" class="">Fecha</th>
               <th scope="col">Acciones</th>
             </tr>
           </thead>
           <?php
 
-          $sqlPaginador="SELECT COUNT(*) as total_registro FROM cliente WHERE idcliente LIKE '%$busqueda%' OR nombre LIKE '%$busqueda%' OR dni LIKE '%$busqueda%' OR telefono LIKE '%$busqueda%' OR direccion LIKE '%$busqueda%' AND  estatus=1";
+          $sqlPaginador="SELECT COUNT(*) as total_registro FROM proveedor WHERE codproveedor LIKE '%$busqueda%' OR proveedor LIKE '%$busqueda%' OR contacto LIKE '%$busqueda%' OR telefono LIKE '%$busqueda%' AND  estatus=1";
 
           $rPaginador=mysqli_query($db,$sqlPaginador);
           $rsPaginador=mysqli_fetch_array($rPaginador);
@@ -76,7 +81,7 @@ include("includes/conexion.php");
           $desde=($pagina - 1)*$por_pagina;
           $total_paginas=ceil($total_registro/$por_pagina);//ceil redondea a entero
 
-          $sqlLista="SELECT * FROM cliente WHERE idcliente LIKE '%$busqueda%' OR dni LIKE '%$busqueda%' OR nombre LIKE '%$busqueda%'  OR telefono LIKE '%$busqueda%' OR direccion LIKE '%$busqueda%' AND estatus=1 ORDER BY idcliente ASC LIMIT $desde,$por_pagina ";
+          $sqlLista="SELECT * FROM proveedor WHERE codproveedor LIKE '%$busqueda%' OR contacto LIKE '%$busqueda%' OR proveedor LIKE '%$busqueda%'  OR telefono LIKE '%$busqueda%'  AND estatus=1 ORDER BY codproveedor ASC LIMIT $desde,$por_pagina ";
           
 
 
@@ -85,25 +90,25 @@ include("includes/conexion.php");
           $rowsLista=mysqli_num_rows($rLista);
           if($rowsLista >0){
             while ($rsLista=mysqli_fetch_array($rLista)){
+            	$formato='Y-m-d H:i:s';
+              	$fecha=DateTime::createFromFormat($formato,$rsLista['date_add']);
         
           ?>
               <tbody>
                 <tr>
-                  <th scope="row"><?php echo $rsLista['idcliente'] ?></th>
-                  <td><?php echo $rsLista['nombre'] ?></td>
-                  <td><?php echo $rsLista['dni'] ?></td>
+                  
+                  <th scope="row"><?php echo $rsLista['codproveedor'] ?></th>
+                  <td><?php echo $rsLista['proveedor'] ?></td>
+                  <td><?php echo $rsLista['contacto'] ?></td>
                   <td><?php echo $rsLista['telefono'] ?></td>
                   <td><?php echo $rsLista['direccion'] ?></td>
+                  <td><?php echo $fecha->format('d-m-Y') ?></td>
                   <td>
-                    <a href="editar-cliente.php?id=<?php echo $rsLista['idcliente']; ?>" class="text-info"><i class="fas fa-edit"></i> Editar</a>
-                    <?php 
-                    //debe haber un super admin
-                    if($_SESSION['rol']==1 || $_SESSION['rol']==2){
-                    ?>
+                    <a href="editar-proveedor.php?id=<?php echo $rsLista['codproveedor']; ?>" class="text-info"><i class="fas fa-edit"></i> Editar</a>
 
                     |
-                    <a href="eliminar-cliente.php?id=<?php echo $rsLista['idcliente']; ?>" class="text-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
-                    <?php } ?> 
+                    <a href="eliminar-proveedor.php?id=<?php echo $rsLista['codproveedor']; ?>" class="text-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
+                    
 
                   </td>
                 </tr>

@@ -50,7 +50,8 @@ else{
 <html lang="en">
 <head>
 	<!-- Required meta tags -->
-	<meta charset="utf-8">
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
 
 	<!-- Bootstrap CSS -->
@@ -66,7 +67,7 @@ else{
 		<div id="contenedor">
 			<div class="row">
 					<div class="form_register_ingreso bg-dark col-12 col-md-4">
-						<form action="" method="post" id="form-in">
+						<form action="" method="post" id="form-ingreso">
 							<h3 class="bg-info">Sistema de facturación</h3>
 							<img src="img/ingresar2.png" alt="Login">
 							<input type="text" placeholder="Usuario" name="usuario" class="form-control mb-3 rounded">
@@ -97,5 +98,7 @@ else{
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="javascript/funciones.js"></script>
 </body>
 </html>

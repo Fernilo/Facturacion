@@ -99,7 +99,7 @@ else{
     </div>
   </div>
  <div class="row">
-    <div class="form_register bg-dark col-xs-12 col-md-4">
+    <div class="col-12 form_register col-md-4  bg-dark">
      <form onsubmit="return validarCamposClientes()" action="" method="post" >
       <h5 class="text-center text-info">Formulario</h5>
       <input type="hidden" name="id" value="<?php echo $idcliente ?> " >
@@ -124,19 +124,19 @@ else{
    
     <button class="btn btn-primary btn-lg btn-block mt-5 mb-3" type="submit"><i class="fas fa-save"></i> Enviar formulario</button>
    
-    <div class="errores d-none d-sm-block">
-     <div class="ocultar text-danger mb-3  text-center" id="ocultarNombre">
-       <p>Debe ingresar un nombre!</p>
-     </div> 
-     <div class="ocultar text-danger mb-3 text-center" id="ocultarDNI">
-       <p>Debe ingresar un DNI!</p>
-     </div>  
-     <div class="ocultar text-danger mb-3 text-center" id="ocultarTelefono">
-       <p>Debe ingresar una Telefóno!</p>
-     </div>
-     <div class="ocultar text-danger  text-center" id="ocultarDireccion">
-       <p>Debe ingresar una Dirección!</p>
-     </div> 
+      <div class="errores d-none d-sm-block">
+         <div class="ocultar text-danger mb-3  text-center" id="ocultarNombre">
+           <p>Debe ingresar un nombre!</p>
+         </div> 
+         <div class="ocultar text-danger mb-3 text-center" id="ocultarDNI">
+           <p>Debe ingresar un DNI!</p>
+         </div>  
+         <div class="ocultar text-danger mb-3 text-center" id="ocultarTelefono">
+           <p>Debe ingresar una Telefóno!</p>
+         </div>
+         <div class="ocultar text-danger  text-center" id="ocultarDireccion">
+           <p>Debe ingresar una Dirección!</p>
+          </div> 
        </div>
      </form>
    </div>
