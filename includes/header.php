@@ -97,10 +97,30 @@ if(empty($_SESSION['active'])){
                     }
       
                    ?>
+                   <?php 
+                    if($_SESSION['rol'] == 1 || $_SESSION['rol']== 2 ){
+      
+      
+                   ?>
                   
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Productos</a>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-tv"></i> Productos
+                    </a>
+                    <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
+                      <div class="nav-item">
+                        <a class="nav-link" href="registro-producto.php"><i class="fas fa-tv"></i> Agregar Produc.</a>
+                      </div>
+                      <div class="nav-item">
+                        <a class="nav-link" href="lista-proveedores.php"><i class="far fa-building"></i> Lista Produc.</a>
+                      </div>
+                    </div>
                   </li>
+                  <?php 
+                    
+                    }
+      
+                   ?>
                   <li class="nav-item">
                     <a class="nav-link" href="facturas.php">Facturas</a>
                   </li>

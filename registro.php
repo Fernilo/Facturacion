@@ -1,6 +1,7 @@
 <?php 
 session_start();
 include("includes/conexion.php");
+
 if(!empty($_SESSION['active'])){
   header('location:sistema.php');
 }
@@ -89,7 +90,7 @@ else{
              <label for="clave" class="text-white">Clave*</label>
              <input type="password" name="clave" class="form-control" id="clave" placeholder="******">
            </div>
-           <div id="alerta-mal" class=""></div>    
+           <div id="alerta" class=""></div>    
            <button type="submit" id="submit_registrar" class="btn btn-primary btn-block btn-lg">Registrarme</button>
            
          </form>

@@ -94,47 +94,51 @@ function validarCamposProveedor() {
 //jquery
 $(document).ready(function(){
 //registro de usuario 	
-	$("#submit_registrar").click(function (e) {
+	$("#submit_registrar").click(function (e){
 		e.preventDefault();
 
 		if($('#nombre').val() == '' || $('#correo').val()=='' || $('#usuario').val()=='' || $('#clave').val()=='')
 		{
-			$('#alerta-mal').html('<p class="mb-2 mal">Complete todos los campos</p>');
-			$('#alerta-mal').toggle(1000);
+			$('#alerta').html('<p class="mb-2 mal">Complete todos los campos</p>').show();
+			
 			return false;
 		}
 	    
-	    $('#loader').show();
 
 	    $.ajax({
 	    	url:"registro.php",
 	    	type:"post",
 	    	dataType:"text",
 	    	data:$('#form-ingreso').serialize(),
-	    	success:function(r){
-	    	console.log(r);
-	    		$("#loader").hide();
+	    	beforeSend:function(){
+	    		$('#loader').show();
+	    	},
+	    	success:function(re){
+	    	console.log(re);
+	    	re=re.trim();
 
-	    		if(r == 'userExist'){
+	    		if(re == 'userExist'){
 	    			
-	    			$('#alerta-mal').html('<p class="mb-2 mal">El usuario y/o correo ya existen</p>')
-	    			$('#alerta-mal').toggle(1000);
+	    			$('#alerta').html('<p class="mb-2 mal">El usuario y/o correo ya existen</p>').show();
+	    			
 	    		}
 
-	    		if(r == 'errorDatos'){
-	    			$('#alerta-mal').html('<p class="mb-2 mal">Error al crear el usuario</p>');
-	    			$('#alerta-mal').toggle(1000);
+	    		if(re == 'errorDatos'){
+	    			$('#alerta').html('<p class="mb-2 mal">Error al crear el usuario</p>').show();
 	    		}
-	    		if(r == 'save'){
-	    			$('#loader').show();
+
+	    		if(re == 'save'){
+	    			$('#form_ingreso').trigger("reset");
 	    			location.href="sistema.php";
 	    		}
 	    		
 	    	},
 	    	error:function(r){
-	    		$('#loader').hide();
 	    		console.log("Error",r);
-	    	}
+	    	},
+	    	complete:function(){
+		    	$('#loader').hide();
+		    }
 	    }); 
 	});
 
@@ -145,36 +149,38 @@ $("#submit_agregar_usuario").click(function (e) {
 
 		if($('#nombre').val() == '' || $('#email').val()=='' || $('#usuario').val()=='' || $('#clave').val()=='')
 		{
-			$('#alerta-mal').html('<p class="mal">Complete todos los campos</p>');
-			$('#alerta-mal').toggle(1000);
+			$('#alerta').html('<p class="mal">Complete todos los campos</p>').show();
+			
 			return false;
 		}
 	    
-	    $('#loader').show();
+	    
 
 	    $.ajax({
 	    	url:"usuario.php",
 	    	type:"post",
 	    	dataType:"text",
 	    	data:$('#form_agregar_usuario').serialize(),
+	    	beforeSend:function(){
+	    		$('#loader').show();
+	    	},
 	    	success:function(re){
 	    		console.log(re);
 	    		re=re.trim();
-	    		$("#loader").hide();
+	    		
 	    		if(re =='userExist'){
-	    			$('#alerta-mal').html('<p class="mal">El usuario y/o correo ya existen ,ingrese otro</p>')
-	    			$('#alerta-mal').toggle(1000);
+	    			$('#alerta').html('<p class="mal">El usuario y/o correo ya existen ,ingrese otro</p>').show();
+	    			
 	    		}
 
 	    		if(re == 'errorDatos'){
-	    			$('#alerta-mal').html('<p class="mal">Error al crear el usuario</p>');
-	    			$('#alerta-mal').toggle(1000);
+	    			$('#alerta').html('<p class="mal">Error al crear el usuario</p>').show();
+	    			
 	    		}
 	    		if(re == 'save'){
-	    			$('#loader').show();
-	    			$('#alerta-bien').html('<p class="bien">Usuario agregado correctamente</p>');
-	    			$('#alerta-bien').toggle(1000);
-	    			$('#loader').hide();
+	    			
+	    			$('#alerta').html('<p class="bien">Usuario agregado correctamente</p>').show();
+	    			$('#form_agregar_usuario').trigger("reset");
 	    		}
 	    		
 	    		
@@ -182,7 +188,10 @@ $("#submit_agregar_usuario").click(function (e) {
 	    	error: function(re){
 		        	$('#loader').hide();
 		           console.log("Error",r);
-		        }	
+		        },
+		    complete:function(){
+		    	$('#loader').hide();
+		    }	
 	    });
 	});
 //agregar proveedor
@@ -191,47 +200,146 @@ $("#submit_agregar_proveedor").click(function (e) {
 
 		if($('#nombre').val() == '' || $('#contacto').val()=='' || $('#telefono').val()=='' || $('#direccion').val()=='')
 		{
-			$('#alerta-mal').html('<p class="mal">Complete todos los campos</p>');
-			$('#alerta-mal').toggle(1000);
+			$('#alerta').html('<p class="mal">Complete todos los campos</p>').show();
+			
 			return false;
 		}
 	    
-	    $('#loader').show();
-	   
 
 	    $.ajax({
 	    	url:"agregar-proveedor.php",
 	    	type:"post",
 	    	dataType:"text",
 	    	data:$('#form_agregar_proveedor').serialize(),
+	    	beforeSend:function(){
+	    		$('#loader').show();
+	    	},
 	    	success:function(re){
 	    		console.log(re);
 	    		re=re.trim();
-	    		$("#loader").hide();
+	    		
 	    		if(re =='userExist'){
-	    			$('#alerta-mal').html('<p class="mal">El nombre  ya existe ,ingrese otro</p>')
-	    			$('#alerta-mal').toggle(1000);
+	    			$('#alerta').html('<p class="mal">El nombre  ya existe ,ingrese otro</p>').show();
+	    			
 	    		}
 
 	    		if(re == 'errorDatos'){
-	    			$('#alerta-mal').html('<p class="mal">Error al crear el proveedor</p>');
-	    			$('#alerta-mal').toggle(1000);
+	    			$('#alerta').html('<p class="mal">Error al crear el proveedor</p>').show();
+	    			
 	    		}
 	    		if(re == 'save'){
-	    			$('#loader').show();
-	    			$('#alerta-bien').html('<p class="bien">Proveedor agregado correctamente</p>');
-	    			$('#alerta-bien').toggle(1000);
-	    			$('#loader').hide();
+	    			
+	    			$('#alerta').html('<p class="bien">Proveedor agregado correctamente</p>').show();
+	    			$('#form_agregar_proveedor').trigger("reset");
+	    			
+	    		}
+	    		
+
+	    		
+	    	},
+	    	error: function(re){
+		           console.log("Error",r);
+		        },
+		    complete:function(){
+		    	$('#loader').hide();
+		    }	
+	    });
+	});
+//agregar producto
+$("#submit_agregar_producto").click(function (e) {
+		
+		e.preventDefault();
+		if($('#proveedor').val() == '' || $('#producto').val()=='' || $('#precio').val()=='' || $('#precio').val()<=0 || $('#cantidad').val()=='' || $('#cantidad').val()<=0)
+		{	
+			$('#alerta').html('<p class="mal">Complete todos los campos</p>').show();
+			
+			return false;
+		}
+		//enviar imagen
+	   var parametros =new FormData($("#form_agregar_producto")[0])
+	    $.ajax({
+	    	url:"registro-producto.php",
+	    	type:"post",
+	    	processData:false,
+			contentType:false,
+			data: parametros,
+	    	cache:false,	
+	    	
+	    	
+	    	beforeSend:function(){
+	    		$('#loader').show();
+	    	},
+	    	success:function(r){
+	    		console.log(r);
+	    		r=r.trim();
+	    		
+	    		
+	    		/*if(re =='userExist'){
+	    			$('#alerta-mal').html('<p class="mal">El nombre  ya existe ,ingrese otro</p>')
+	    			$('#alerta-mal').toggle(1000);
+	    		}*/
+
+	    		if(r == 'errorDatos'){
+	    			$('#alerta').html('<p class="mal">Error al registrar el producto</p>').show();
+	    			
+	    		}	
+	    		if(r == 'save'){
+	    			$('#alerta').html('<p class="bien">Producto agregado correctamente</p>').show();
+	    			// limpia el formulario si se inserto correctamente
+	    			$('#form_agregar_producto').trigger("reset");
 	    		}
 	    		
 	    		
 	    	},
-	    	error: function(re){
-		        	$('#loader').hide();
+	    	error: function(r){
 		           console.log("Error",r);
-		        }	
+		        },
+		    // se ejecuta sin importa si falla o no
+		    complete: function() {
+          		$('#loader').hide();
+       		 }
 	    });
 	});
+	
+	//--------------------- SELECCIONAR FOTO PRODUCTO ---------------------
+    $("#imagen").on("change",function(){
+    	var uploadFoto = document.getElementById("imagen").value;
+        var imagen       = document.getElementById("imagen").files;
+        var nav = window.URL || window.webkitURL;
+        var contactAlert = document.getElementById('form_alert');
+        
+            if(uploadFoto !='')
+            {
+                var type = imagen[0].type;
+                var name = imagen[0].name;
+                if(type != 'image/jpeg' && type != 'image/jpg' && type != 'image/png')
+                {
+                    contactAlert.innerHTML = '<p class="errorArchivo">El archivo no es válido.</p>';                        
+                    $("#img").remove();
+                    $(".delPhoto").addClass('notBlock');
+                    $('#imagen').val('');
+                    return false;
+                }else{  
+                        contactAlert.innerHTML='';
+                        $("#img").remove();
+                        $(".delPhoto").removeClass('notBlock');
+                        var objeto_url = nav.createObjectURL(this.files[0]);
+                        $(".prevPhoto").append("<img id='img' src="+objeto_url+">");
+                        $(".upimg label").remove();
+                        
+                    }
+              }else{
+              	alert("No selecciono foto");
+                $("#img").remove();
+              }              
+    });
+
+    $('.delPhoto').click(function(){
+    	$('#imagen').val('');
+    	$(".delPhoto").addClass('notBlock');
+    	$("#img").remove();
+
+    });
 });
 
 

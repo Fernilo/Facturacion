@@ -67,8 +67,7 @@
           <div id="loader"></div>
           <div class="row">
             <div class="col-12 col-md-4 offset-md-4">
-              <div id="alerta-mal" class=""></div>
-              <div id="alerta-bien" class=""></div>
+              <div id="alerta" class=""></div>
             </div>
           </div>
         
@@ -86,9 +85,7 @@
                    </div>
                    <div class="form-group">
                     <label for="telefono" class="text-white">Teléfono</label>
-                    <div class="input-group">
                      <input type="number" class="form-control" id="telefono" placeholder="Teléfono" name="telefono">
-                    </div>
                    </div>
                    <div class="form-group">
                      <label for="direccion" class="text-white">Dirección</label>
