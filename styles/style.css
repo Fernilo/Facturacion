@@ -236,3 +236,9 @@ body{
 .imgProductoDelete{
 	width: 175px;
 }
+/*------------------------Foto Lista Productos-------------------------*/
+.img_producto img{
+	height: auto;
+	width: 60px;
+	margin: auto;
+}

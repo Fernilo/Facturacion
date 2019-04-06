@@ -104,10 +104,10 @@ include("includes/conexion.php");
                   <td><?php echo $rsLista['direccion'] ?></td>
                   <td><?php echo $fecha->format('d-m-Y') ?></td>
                   <td>
-                    <a href="editar-proveedor.php?id=<?php echo $rsLista['codproveedor']; ?>" class="text-info"><i class="fas fa-edit"></i> Editar</a>
+                    <a href="editar-proveedor.php?id=<?php echo $rsLista['codproveedor']; ?>" class="text-info"><i class="fas fa-edit"></i> <span class="d-none d-md-inline">Editar</span></a>
 
                     |
-                    <a href="eliminar-proveedor.php?id=<?php echo $rsLista['codproveedor']; ?>" class="text-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
+                    <a href="eliminar-proveedor.php?id=<?php echo $rsLista['codproveedor']; ?>" class="text-danger"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline">Eliminar</span></a>
                     
 
                   </td>

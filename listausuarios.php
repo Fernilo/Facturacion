@@ -86,14 +86,14 @@ include("includes/conexion.php");
                   <td><?php echo $rsLista['usuario'] ?></td>
                   <td><?php echo $rsLista['rol'] ?></td>
                   <td>
-                    <a href="editar-usuarios.php?id=<?php echo $rsLista['idusuario'] ?>" class="text-info"><i class="fas fa-edit"></i> Editar</a>
+                    <a href="editar-usuarios.php?id=<?php echo $rsLista['idusuario'] ?>" class="text-info"><i class="fas fa-edit"></i> <span class="d-none d-md-inline">Editar</span></a>
                     <?php 
                     //debe haber un super admin
                     if($rsLista['idusuario']!=1){
                     ?>
 
                     |
-                    <a href="eliminar-usuarios.php?id=<?php echo $rsLista['idusuario'] ?>" class="text-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
+                    <a href="eliminar-usuarios.php?id=<?php echo $rsLista['idusuario'] ?>" class="text-danger"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-inline">Eliminar</span></a>
                     <?php } ?> 
 
                   </td>

@@ -14,6 +14,7 @@
 
        /* print_r($_FILES); Verifico los archivos enviados y salgo con exit
         exit;*/
+        
         $proveedor=$_POST['proveedor'];
         $producto=$_POST['producto'];
         $precio=$_POST['precio'];

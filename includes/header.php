@@ -112,7 +112,7 @@ if(empty($_SESSION['active'])){
                         <a class="nav-link" href="registro-producto.php"><i class="fas fa-tv"></i> Agregar Produc.</a>
                       </div>
                       <div class="nav-item">
-                        <a class="nav-link" href="lista-proveedores.php"><i class="far fa-building"></i> Lista Produc.</a>
+                        <a class="nav-link" href="lista-productos.php"><i class="fas fa-list"></i></i> Lista Produc.</a>
                       </div>
                     </div>
                   </li>
