@@ -54,7 +54,7 @@ include("includes/conexion.php");
             </tr>
           </thead>
           <?php
-          $sqlPaginador="SELECT COUNT(*) as total_registro FROM proveedor WHERE estatus=1";
+          $sqlPaginador="SELECT COUNT(*) as total_registro FROM proveedor WHERE estado=1";
           $rPaginador=mysqli_query($db,$sqlPaginador);
           $rsPaginador=mysqli_fetch_array($rPaginador);
           $total_registro=$rsPaginador['total_registro'];
@@ -70,7 +70,7 @@ include("includes/conexion.php");
           $desde=($pagina-1 )*$por_pagina;
           $total_paginas=ceil($total_registro/$por_pagina);//ceil redondea a entero
 
-          $sqlLista="SELECT * FROM proveedor  WHERE estatus=1 ORDER BY codproveedor ASC LIMIT $desde,$por_pagina ";
+          $sqlLista="SELECT * FROM proveedor  WHERE estado=1 ORDER BY codproveedor ASC LIMIT $desde,$por_pagina ";
           $rLista=mysqli_query($db,$sqlLista);
           mysqli_close($db);
           $rowsLista=mysqli_num_rows($rLista);

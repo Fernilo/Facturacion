@@ -53,7 +53,7 @@
   }
 
   $idusuario=$_REQUEST['id'];
-  $sqlExiste="SELECT u.idusuario,u.nombre,u.correo,u.usuario,u.rol as idrol,r.rol as rol FROM usuario u INNER JOIN rol r on u.rol=r.idrol WHERE idusuario=$idusuario AND estatus =1";
+  $sqlExiste="SELECT u.idusuario,u.nombre,u.correo,u.usuario,u.rol as idrol,r.rol as rol FROM usuario u INNER JOIN rol r on u.rol=r.idrol WHERE idusuario=$idusuario AND estado =1";
 
   $rExiste=mysqli_query($db,$sqlExiste);
   

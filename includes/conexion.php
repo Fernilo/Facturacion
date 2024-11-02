@@ -1,8 +1,8 @@
 <?php 
-	define('DB_HOST','localhost');
-	define('DB_PASS','');
+	define('DB_HOST','db');
+	define('DB_PASS','root');
 	define('DB_USER','root');
-	define('DB_NAME','id8479856_facturacion');
+	define('DB_NAME','facturacion');
 
 	$db=mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 	if(!$db){

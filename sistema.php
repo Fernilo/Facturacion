@@ -32,7 +32,7 @@ if(empty($_SESSION['active'])){
   </div>
   <div class="row">
     <div class="col-12">
-      <?php $sqlDatos="SELECT * FROM usuario WHERE idusuario='".$_SESSION['idUser']."'";
+      <?php   $sqlDatos="SELECT * FROM usuario WHERE id='".$_SESSION['idUser']."'";
       $rDatos=mysqli_query($db,$sqlDatos);
       $rsDatos=mysqli_fetch_array($rDatos);
 

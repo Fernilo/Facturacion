@@ -11,7 +11,7 @@ if(empty($_SESSION['active'])){
         <div class="col-12 col-md-4  bg-info">
 
           <img src="img/cara.jpg" width="30" height="30" class="d-inline-block align-top rounded" alt="">
-          <?php $sqlDatos="SELECT * FROM usuario WHERE idusuario='".$_SESSION['idUser']."'";
+          <?php $sqlDatos="SELECT * FROM usuario WHERE id='".$_SESSION['idUser']."'";
          
             $rDatos=mysqli_query($db,$sqlDatos);
             
